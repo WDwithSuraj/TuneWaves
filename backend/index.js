@@ -1,12 +1,13 @@
 const express = require("express")
 const userRoutes = require("./routes/userRoute");
 const connection = require("./config/db")
-
+const songRoutes = require("./routes/songRoute")
 const app = express();
 app.use(express.json());
 
 
 app.use("/tuneWaves/users", userRoutes);
+app.use("/tuneWaves/songs", songRoutes)
 
 
 app.get("/", async (req, res) => {
