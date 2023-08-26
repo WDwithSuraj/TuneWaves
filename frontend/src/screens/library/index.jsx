@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
 import "./library.css";
 import { AiFillPlayCircle } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {Heart } from "lucide-react"
+import axios from "axios";
 
 function Library() {
   const [playlists, setPlaylists] = useState([]);
+  const [likeheart,setLikeheart]=useState(false)
 
   useEffect(() => {
     fetch("http://localhost:8080/tuneWaves/songs")
@@ -13,7 +16,7 @@ function Library() {
         return  res.json();
       })
       .then((data) => {
-        console.log(data)
+        //console.log(data)
         setPlaylists(data.data)
       })
       .catch((err)=>{
@@ -26,9 +29,14 @@ function Library() {
 
   const navigate=useNavigate()
 
-  const playPlaylist=(_id)=>{
-    navigate("/player",{state:{id:_id}})
-  }
+  // const playPlaylist=(_id)=>{
+  //   navigate(`/player/:${id}`,{state:{id:_id}})
+  // }
+
+  // const handlelike=(id)=>{
+  //   axios.put(`http://localhost:8080/tuneWaves/songs/like/:${id}`)
+
+  // }
 
   return (
     <div className="screen-container">
@@ -37,7 +45,7 @@ function Library() {
         <div
           className="playlist-card"
           key={playlist._id}
-           onClick={() => playPlaylist(playlist._id)}
+          
         >
           <img
             src={playlist.image}
@@ -46,9 +54,13 @@ function Library() {
           />
           <p className="playlist-title">{playlist.title}</p>
           <p className="playlist-artist">{playlist.artist} </p>
+        
+        <span className="like-heart" onClick={()=>{setLikeheart(!likeheart)}}>{likeheart?<Heart color="red" fill="red"/>:<Heart />}</span>
+          
+         
           <div className="playlist-fade">
             <IconContext.Provider value={{ size: "50px", color: "#E99D72" }}>
-              <AiFillPlayCircle />
+             <Link to={`/player/${playlist._id}`}><AiFillPlayCircle   /></Link> 
             </IconContext.Provider>
           </div>
         </div>
