@@ -1,5 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {  Routes, Route } from "react-router-dom";
 import Library from '../library';
 import Feed from '../feed';
 import Trending from '../trending';
@@ -10,7 +11,7 @@ import Sidebar from '../../Components/sidebar';
 
 function Home() {
   return (
-    <Router>
+    //<Router>
       <div className="main-body">
         <Sidebar /> 
         <Routes>
@@ -21,7 +22,7 @@ function Home() {
           <Route path="/favorites" element={<Favorite />} />
         </Routes>
       </div>
-    </Router>
+   // </Router>
   )
 }
 
