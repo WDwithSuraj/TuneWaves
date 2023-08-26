@@ -1,0 +1,44 @@
+#sideBar{
+    /* border: 1px solid; */
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 20vw;
+    height: 90vh;
+    border-radius: 15px;
+    margin-top: 6px;
+    background-color: white;
+}
+
+.sidetitle{
+    /* border: 1px solid orangered; */
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 20px;
+    margin: 5% 2%;
+    display: flex;
+    padding-left: 15%;
+    height: 8vh;
+    align-items: center;
+}
+.sidetitle:hover{
+    cursor: pointer;
+    background-color: rgb(247, 247, 247);
+}
+
+
+.sidelogo{
+    align-self: center;
+    color: #48BB78;
+}
+
+.sidetitle h3{
+    margin-left: 2%;
+    color: #48BB78;
+    font-size: larger;
+    font-weight: bold;
+}
+
+
+
+/* media query */
+@media screen and (max-width: 700px){
+
+}

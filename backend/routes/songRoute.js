@@ -28,7 +28,7 @@ songRouter.get("/", async (req, res) => {
 
 
 //update songs
-songRouter.put("/:id", async (req, res) => {
+songRouter.put("/update/:id", async (req, res) => {
     try {
         const song = await SongModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
@@ -40,7 +40,7 @@ songRouter.put("/:id", async (req, res) => {
 
 //delete song by ID
 
-songRouter.delete("/:id", async (req, res) => {
+songRouter.delete("/delete/:id", async (req, res) => {
     try {
         await SongModel.findByIdAndDelete(req.params.id);
         res.status(200).send("Song deleted succsessfully")

@@ -2,14 +2,22 @@ const express = require("express")
 const userRoutes = require("./routes/userRoute");
 const connection = require("./config/db")
 const songRoutes = require("./routes/songRoute")
-const cors=require('cors')
+
+
+
+const cors = require('cors')
+
+
+
 const app = express();
 
 app.use(express.json());
 app.use(cors())
 
+app.use(cors())
 app.use("/tuneWaves/users", userRoutes);
 app.use("/tuneWaves/songs", songRoutes)
+ 
 
 
 app.get("/", async (req, res) => {
