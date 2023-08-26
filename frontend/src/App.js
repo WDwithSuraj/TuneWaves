@@ -9,8 +9,8 @@ function App() {
   <div>
     <ChakraProvider>
       <Navbar />
-    <Login />
-        {/* <Signup/> */}
+    {/* <Login /> */}
+        <Signup/>
     </ChakraProvider>
       
   </div>
