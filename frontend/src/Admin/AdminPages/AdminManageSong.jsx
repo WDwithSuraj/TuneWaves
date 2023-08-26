@@ -20,7 +20,7 @@ export const AdminManageSong = () => {
     <div id="admin-manage-song">
       <h2>Manage Songs</h2>
       <div className="all-music">
-        {music?.map((music)=><AdminSongCard music={music} />)}
+        {music?.map((music)=><AdminSongCard music={music} getMusicData={getMusicData} />)}
       </div>
     </div>
   );
