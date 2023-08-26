@@ -29,6 +29,7 @@ console.log(data);
       if (response.ok) {
         setResponseMessage('Login successful!');
         openErrorAlert('Login Successful');
+        localStorage.setItem('token', data.token);
 
       } else {
         setResponseMessage(`Error: ${data.message}`);
