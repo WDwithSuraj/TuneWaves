@@ -1,0 +1,71 @@
+#Admin-dashboard{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 79vw;
+    height: 90vh;
+    margin-left: 1%;
+    margin-top: 6px;
+    border-radius: 20px;
+    text-align: center;
+    position: absolute;
+    background-color: rgb(253, 253, 253);
+}
+
+#Admin-dashboard>h2{
+    position: relative;
+    color: rgb(73, 73, 73);
+    font-size: xx-large;
+    font-weight: 500;
+    top: 2%;
+}
+
+#detail{
+    display: flex;
+    /* border: 1px solid; */
+    margin-top: 5%;
+    justify-content: space-evenly;
+    height: 25%;
+    /* background-color: white; */
+
+}
+
+.detail-card{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    width: 27%;
+    display: flex;
+    height: 100%;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.detail-logo{
+    /* border: 2px solid rgb(39, 1, 7); */
+    width: 40%;
+    height: 60%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top:12%;
+    margin-left: 10%;
+    border-radius: 20px;
+}
+
+.detail-text{
+    /* border: 2px solid green; */
+    width: 50%;
+    height: 60%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top:12%;
+    
+}
+.detail-text>p{
+    font-size: larger;
+    font-weight: 500;
+    color: rgb(73, 73, 73);
+}
+.detail-text>h3{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(73, 73, 73);
+}
