@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import {
   Box,
   Flex,
@@ -11,6 +12,7 @@ import {
   MenuItem,
   Button,
 } from '@chakra-ui/react';
+import Login from './Login';
 // import { FiSearch, FiMusic } from '@chakra-ui/icons';
 
 const languages = [
@@ -28,13 +30,14 @@ const languages = [
 ];
 
 const Navbar = () => {
+  const navigate=useNavigate();
   return (
     <Flex
       as="nav"
       align="center"
       padding="1rem"
+      height='20'
       borderBottom="1px solid #eee"
-      backgroundColor="black"
       boxShadow="0px 2px 4px rgba(0, 0, 0, 0.1)"
     >
       {/* Website Logo */}
@@ -49,19 +52,24 @@ const Navbar = () => {
       <Spacer />
 
       {/* Search Bar */}
-      <Box>
+      <Box  pt="0"> 
         <Input
           placeholder="Search..."
           variant="outline"
           size="sm"
+          w={500}
           borderRadius="full"
+          p={5}
+          
         />
         <IconButton
         //   icon={<FiSearch />}
           aria-label="Search"
           variant="ghost"
           size="lg"
-          ml="-10px"
+          ml="10px"
+        
+
         />
       </Box>
 
@@ -84,12 +92,12 @@ const Navbar = () => {
         </Menu>
       </Box>
 
-      {/* Login and Signup */}
+      
       <Box>
-        <Button color={"black"} variant="ghost" size="sm" bg={"gray"}>
+        <Button onClick={()=>navigate("/login")} color={"black"} variant="ghost" size="sm" bg={"gray"}>
           Login
         </Button>
-        <Button colorScheme="blue" size="sm">
+        <Button onClick={()=>navigate("/signup")} colorScheme="blue" size="sm">
           Sign Up
         </Button>
       </Box>
