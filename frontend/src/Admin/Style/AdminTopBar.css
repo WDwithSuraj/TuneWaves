@@ -1,0 +1,19 @@
+#admintopbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    height: 9vh;
+}
+
+#admintopbar h1{
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+
+/* media query */
+@media screen and (max-width: 700px){
+
+}
