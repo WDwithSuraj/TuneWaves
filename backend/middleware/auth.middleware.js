@@ -1,8 +1,6 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const BlacklistModel = require("../model/blacklistModel")
-
-
+const BlacklistModel = require("../models/blacklistModel")
 const auth = async (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1] || null;
     try {
@@ -29,18 +27,4 @@ const auth = async (req, res, next) => {
 
 
 module.exports = auth;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

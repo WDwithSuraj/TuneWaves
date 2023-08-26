@@ -1,19 +1,23 @@
 
-import './App.css';
-import Login from './Components/Login';
-import Signup from './Components/Signup';
-import { ChakraProvider } from '@chakra-ui/react'
-import Navbar from './Components/Navbar';
+import "./App.css";
+import { Admin } from "./Admin/Admin";
+import Home from "./screens/home";
+import { BrowserRouter } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import { AllRoutes } from "./AllRoutes";
+
 function App() {
   return (
-  <div>
-    <ChakraProvider>
+    <>
       <Navbar />
-    {/* <Login /> */}
-        <Signup/>
-    </ChakraProvider>
-      
-  </div>
+
+
+      <AllRoutes />
+    </>
+
+
+
+
   );
 }
 

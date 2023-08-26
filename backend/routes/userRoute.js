@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const UserModel = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const admin = require("../middleware/admin.middleware")
+const auth = require("../middleware/auth.middleware");
 const validateObjectId = require("../middleware/validateObjectId");
 const BlacklistModel = require("../models/blacklistModel");
 require("dotenv").config();
@@ -66,6 +68,45 @@ router.post("/logout", async (req, res) => {
 })
 
 
+//get all users
+router.get("/", admin, async (req, res) => {
+    try {
+        const users = await UserModel.find()
+        res.status(200).send({ data: users })
+    } catch (error) {
+        res.status(400).send({ message: error })
+    }
+})
+
+
+
+// get user by id
+router.get("/:id", [validateObjectId, auth], async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.params.id).select("-password -__v");
+        res.status(200).send({ data: user });
+    } catch (error) {
+        res.status(400).send(error)
+    }
+});
+
+// update user by id
+router.put("/:id", [validateObjectId, auth], async (req, res) => {
+    const user = await UserModel.findByIdAndUpdate(
+        req.params.id,
+        { $set: req.body },
+        { new: true }
+    );
+    res.status(200).send({ data: user, message: "Profile updated successfully" });
+});
+
+// delete user by id
+router.delete("/:id", [validateObjectId, admin], async (req, res) => {
+    await UserModel.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Successfully deleted user." });
+});
 
 
 module.exports = router
+
+
