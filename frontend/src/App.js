@@ -6,7 +6,7 @@ import Home from './screens/home';
 function App() {
   return (
     <>
-     <Admin/>
+      <Admin />
       {/* <Home/> */}
     </>
   );

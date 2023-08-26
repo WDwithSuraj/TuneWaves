@@ -18,17 +18,35 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 
-export const AdminSongCard = ({ music }) => {
+export const AdminSongCard = ({ music,getMusicData }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const [songData,setSongData] = useState([])
-  // const [data,setData] = useState([])
-  // console.log(music)
-   function handleEdit(id){
-   
-    onOpen()
+
+  const [songUpdate,setSongUpdate] = useState(music)
+
+  function handleChange(e){
+    const { name, value } = e.target;
+    setSongUpdate((prev) => {
+      return {...prev,[name]:name === "duration"? +value: value};
+    });
   }
 
-  
+   function handleEdit(id){
+     onOpen()
+    }
+    
+    function handleUpdate(id){
+      // alert(id)
+      axios.put(`http://localhost:8080/tuneWaves/songs/update/${id}`,songUpdate)
+      .then(()=>getMusicData())
+      .then(()=>onClose())
+      
+    }
+
+    function handleDelete(id){
+      // alert(id)
+      axios.delete(`http://localhost:8080/tuneWaves/songs/delete/${id}`)
+      .then(()=>getMusicData())
+    }
 
   return (
     <div id="music-card">
@@ -44,7 +62,7 @@ export const AdminSongCard = ({ music }) => {
         <button onClick={()=>handleEdit(music._id)} style={{ backgroundColor: "#52eaa8" }}>
           Edit
         </button>
-        <button style={{ backgroundColor: "#fb2f2f" }}>Delete</button>
+        <button style={{ backgroundColor: "#fb2f2f" }} onClick={()=>handleDelete(music._id)} >Delete</button>
       </div>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -54,18 +72,18 @@ export const AdminSongCard = ({ music }) => {
           <ModalBody>
             <FormControl>
             <FormLabel>Title</FormLabel>
-            <Input type='text' value={music.title} />
+            <Input type='text' name="title" value={songUpdate.title} onChange={handleChange} />
             <FormLabel>Artist</FormLabel>
-            <Input type='text' value={music.artist} />
+            <Input type='text' name="artist" value={songUpdate.artist} onChange={handleChange} />
             <FormLabel>Source link</FormLabel>
-            <Input type='text' value={music.source} />
+            <Input type='text' name="source" value={songUpdate.source} onChange={handleChange} />
             <FormLabel>Genre</FormLabel>
-            <Input type='text' value={music.genre} />
+            <Input type='text' name="genre" value={songUpdate.genre} onChange={handleChange} />
             <FormLabel>Image link</FormLabel>
-            <Input type='text' value={music.image} />
+            <Input type='text' name="image" value={songUpdate.image} onChange={handleChange} />
             <FormLabel>Duration</FormLabel>
-            <Input type='text' value={music.duration} />
-            <Button mt='20px' colorScheme='blue' >Update</Button>
+            <Input type='number' name="duration" value={songUpdate.duration} onChange={handleChange} />
+            <Button mt='20px' colorScheme='blue' onClick={()=>handleUpdate(music._id)} >Update</Button>
             </FormControl>
           </ModalBody>
         </ModalContent>
