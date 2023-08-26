@@ -33,7 +33,7 @@ songRouter.get("/:id", async (req, res) => {
         const songs = await SongModel.findOne({ songID });
         res.status(200).send({ data: songs })
     } catch (error) {
-        res.send(error)
+        res.send(error.message)
     }
 })
 
