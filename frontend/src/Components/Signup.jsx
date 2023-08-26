@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Box, Button, FormControl, FormLabel, Input, Checkbox, Text, Image, VStack, HStack } from '@chakra-ui/react';
+import { Box, Button, FormControl, FormLabel, Input, Checkbox, Text, Image, VStack, HStack, Switch } from '@chakra-ui/react';
+
+import Error from './Error';
+import Success from './Success';
 
 function Signup() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
-  const [dob, setDob] = useState('');
-  const [marketingMessages, setMarketingMessages] = useState(false);
-  const [shareData, setShareData] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -19,13 +20,11 @@ function Signup() {
       name: name,
       password: password,
       gender: gender,
-      date_of_birth: dob,
-      marketing_messages: marketingMessages,
-      share_data: shareData,
+      isAdmin: isAdmin,
     };
 
     try {
-      const response = await fetch('https://dark-blue-coral-tie.cyclic.cloud/users/register', {
+      const response = await fetch('http://localhost:8080/tuneWaves/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,9 +35,9 @@ function Signup() {
       const data = await response.json();
 
       if (response.ok) {
-        setResponseMessage('Sign-up successful!');
+        <Success />
       } else {
-        setResponseMessage(`Error: ${data.message}`);
+     <Error />
       }
     } catch (error) {
       setResponseMessage('An error occurred while signing up.');
@@ -47,19 +46,19 @@ function Signup() {
 
   return (
     <Box
-      backgroundImage="url('/loginpagepic1.jpg')"
+      backgroundImage="url('/loginAndsignuppic.png')"
       backgroundSize="cover"
       backgroundPosition="center"
       minHeight="100vh"
       display="flex"
       justifyContent="center"
       alignItems="center"
-      flexDirection="column" /* Center items vertically */
+      flexDirection="column" 
     >
-          <Text color="white" p={"15"} fontSize={"30px"}>Register</Text>
+      <Text color="white"  fontSize={"25px"}>Register</Text>
       <HStack spacing={6} alignItems="flex-start">
-        <VStack mt={220} alignItems="flex-start">
-          {/* Sign Up with Google Button */}
+        <VStack mt={20} alignItems="flex-start">
+          
           <Button
             variant="outline"
             size="lg"
@@ -69,58 +68,51 @@ function Signup() {
           >
             Sign Up with Google
           </Button>
-          {/* Sign Up with Twitter Button */}
+       
           <Button
             variant="outline"
             size="lg"
             color="white"
-            
             leftIcon={<Image src="/download.png" boxSize={10} mr={5} />}
             onClick={() => console.log('Sign Up with Twitter')}
           >
             Sign Up with Twitter
           </Button>
         </VStack>
-  <h2 color='white'>OR</h2>
-        <Box  p={8} ml={100} rounded="md" shadow="lg" maxWidth="400px" width="100%" style={{ backdropFilter: 'blur(5px)' }}>
-      
+        <h2 color='white'>OR</h2>
+        <Box p={8} ml={100} rounded="md" shadow="lg" maxWidth="400px" width="100%" style={{ backdropFilter: 'blur(5px)' }}>
           <form onSubmit={handleSubmit}>
             <FormControl>
               <FormLabel>
-                <Text color="white"  placeholder={"Your Email"}>Email:</Text>
+                <Text color="white" placeholder={"Your Email"}>Email:</Text>
               </FormLabel>
-              <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <Input type="email" color={'white'} value={email} onChange={(e) => setEmail(e.target.value)} required />
             </FormControl>
             <FormControl>
               <FormLabel>
                 <Text color="white">Name:</Text>
               </FormLabel>
-              <Input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+              <Input type="text"  color={'white'} value={name} onChange={(e) => setName(e.target.value)} required />
             </FormControl>
             <FormControl>
               <FormLabel>
                 <Text color="white">Password:</Text>
               </FormLabel>
-              <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <Input type="password" color={'white'}  value={password} onChange={(e) => setPassword(e.target.value)} required />
             </FormControl>
             <FormControl>
               <FormLabel>
                 <Text color="white">Gender:</Text>
               </FormLabel>
-              <Input type="text" value={gender} onChange={(e) => setGender(e.target.value)} required />
+              <Input type="text" color={'white'} value={gender} onChange={(e) => setGender(e.target.value)} required />
             </FormControl>
-            <FormControl>
-              <FormLabel>
-                <Text color="white">Date of Birth:</Text>
+           
+            <FormControl display="flex" alignItems="center">
+              <FormLabel htmlFor="admin-switch" mb="0">
+                <Text color="white">Admin:</Text>
               </FormLabel>
-              <Input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required />
+              <Switch id="admin-switch" colorScheme="white" isChecked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)} />
             </FormControl>
-            <Checkbox color={'white'} colorScheme="white" isChecked={marketingMessages} onChange={(e) => setMarketingMessages(e.target.checked)}>
-              I would prefer not to receive marketing messages from Music Waves
-            </Checkbox>
-            <Checkbox color={'white'} colorScheme="white" isChecked={shareData} onChange={(e) => setShareData(e.target.checked)}>
-              Share my registration data with Music Waves's content providers for marketing purposes
-            </Checkbox>
             <Button type="submit" m={"10"} bg={"gray"} colorScheme="white">
               Sign Up
             </Button>
