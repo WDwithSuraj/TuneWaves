@@ -33,11 +33,16 @@ function Signup() {
       });
 
       const data = await response.json();
-
+console.log(data);
       if (response.ok) {
+        setResponseMessage('Sign-up successful!');
+     
         <Success />
+      
       } else {
+        setResponseMessage(` ${data.message}`);
      <Error />
+
       }
     } catch (error) {
       setResponseMessage('An error occurred while signing up.');
