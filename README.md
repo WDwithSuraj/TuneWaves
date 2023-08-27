@@ -6,7 +6,7 @@
 
 ## Discover the Sound of TuneWaves: Your Gateway to the Ultimate Music Experience
 
-TuneWaves is not just a music platform; it's your portal to a world of limitless audio exploration. Immerse yourself in the rhythms of the world, uncover hidden gems, and craft your musical journey like never before. Whether you're a dedicated audiophile, a passionate artist, or simply seeking solace in melodies, TuneWaves is your canvas to create, explore, and connect through the power of sound.
+TuneWaves is not just a music platform, it's your portal to a world of limitless audio exploration. Immerse yourself in the rhythms of the world, uncover hidden gems, and craft your musical journey like never before. Whether you're a dedicated audiophile, a passionate artist, or simply seeking solace in melodies, TuneWaves is your canvas to create, explore, and connect through the power of sound.
 
 ### Key Features:
 
@@ -20,19 +20,22 @@ TuneWaves is not just a music platform; it's your portal to a world of limitless
 
 - **Seamless Playback**: Enjoy uninterrupted music streaming with easy-to-use playback controls.
 
-- **Admin Panel**: Manage, update, and curate your music library effortlessly.
+- **Admin Panel**: Manage, update, and create your music library effortlessly.
 
 - **Secure Authentication**: Protect your data with robust user authentication.
 
 - **Responsive Design**: Experience TuneWaves on any device, anywhere, anytime.
 
-TuneWaves is not just a platform; it's a musical journey waiting to be written by you. Discover the sound of TuneWaves today and let the music take you places.
+TuneWaves is not just a platform, it's a musical journey waiting to be written by you. Discover the sound of TuneWaves today and let the music take you places.
 
 ## For Deploying
 ![](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
 
-- Live preview : 
+- Live preview :
+
+# Different Pages of Website
+### Homepage
 
 
 ## Table of Contents
@@ -85,7 +88,8 @@ TuneWaves is not just a platform; it's a musical journey waiting to be written b
 ## Our Collaborators
 - Suraj Kumar Kamat (Team lead) - surajkrsr98@gmail.com
 - Anshul Kushwah - kushwahasg4450@gmail.com
-- Rohit Nayal - rohitnayal@gmail.com
+- Rohit Nayal - rohitnayalkld@gmail.com
+- Ayush Kumar Pandey - ayushpandey.632@gmail.com
 - Kumar Rohan - 00rohansah00.kr@gmail.com
   
 ## Getting Started
@@ -102,3 +106,27 @@ TuneWaves is not just a platform; it's a musical journey waiting to be written b
 
    ```bash
    git clone https://github.com/WDwithSuraj/shocking-grade-9442.git
+
+ ## Frontend Setup
+ 
+1. **Open a new terminal and navigate back to the project root (`shocking-grade-9442`).**
+
+2. **Navigate to the frontend directory:**
+
+   ```bash
+   cd frontend
+   npm install
+   npm start
+
+  ## Backend Setup
+
+1. **Open a new terminal and navigate back to the project root (`shocking-grade-9442`).**
+2. **Navigate to the backend directory:**
+
+   ```bash
+   cd backend
+   npm install
+   npm run server
+  **Create a .env file in the backend directory and add your MongoDB connection string.**
+  ```
+  MONGODB_URI=your-mongodb-connection-string
