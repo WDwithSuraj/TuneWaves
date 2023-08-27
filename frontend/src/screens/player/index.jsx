@@ -1,10 +1,13 @@
-
 import React, { useRef, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import MediaPlayer from "./MediaPlayer";
+import { useToast } from "@chakra-ui/react";
 
 function Player() {
-  const { index, playlists } = useLocation().state;
+  const toast = useToast()
+  const navigate=useNavigate()
+  const locationState = useLocation().state || {};
+  const { index, playlists } = locationState;
   const audioPlayer = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(index || 0);
@@ -13,19 +16,25 @@ function Player() {
   const [duration, setDuration] = useState(100);
   const [volume, setVolume] = useState(1);
 
-  const songAlbum = playlists[currentIndex].album;
-  const songArtist = playlists[currentIndex].artist;
-  const songGenre = playlists[currentIndex].genre;
+  // Check if playlists is defined and not empty
+  const songAlbum = playlists && playlists[currentIndex]?.album || "Unknown Album";
+  const songArtist = playlists && playlists[currentIndex]?.artist || "Unknown Artist";
+  const songGenre = playlists && playlists[currentIndex]?.genre || "Unknown Genre";
 
-  const songSource = playlists[currentIndex].source;
+  // Check if playlists is defined and not empty
+  const songSource = playlists && playlists[currentIndex]?.source || "";
+
 
   useEffect(() => {
-    if (isPlaying) {
-      audioPlayer.current.play();
-    } else {
-      audioPlayer.current.pause();
+    if (audioPlayer.current) {
+      if (isPlaying) {
+        audioPlayer.current.play();
+      } else {
+        audioPlayer.current.pause();
+      }
     }
   }, [isPlaying]);
+  
 
   useEffect(() => {
     setPlaying(null);
@@ -58,38 +67,59 @@ function Player() {
     setVolume(newVolume);
   };
 
+  const gettoast=()=>{
+    toast({
+      title: 'Nothing to play!!',
+       position:"top",
+      status: 'success',
+      duration: 1500,
+      isClosable: true,
+    })
+    
+    
+    setTimeout(()=>{
+      navigate("/")
+    },2000)
+  }
+
   return (
     <div className="screen-container">
-      <audio
-        ref={audioPlayer}
-        onCanPlay={() => {
-          setDuration(audioPlayer.current.duration);
-          isPlaying === null && setPlaying(true);
-        }}
-        onTimeUpdate={onProgressChange}
-        controls={false}
-        src={songSource}
-      ></audio>
+      {/* Check if playlists is defined and not empty */}
+      {playlists && playlists.length > 0 ? (
+        <>
+          <audio
+            ref={audioPlayer}
+            onCanPlay={() => {
+              setDuration(audioPlayer.current.duration);
+              isPlaying === null && setPlaying(true);
+            }}
+            onTimeUpdate={onProgressChange}
+            controls={false}
+            src={songSource}
+          ></audio>
 
-      <MediaPlayer
-        title={playlists[currentIndex].title}
-        image={playlists[currentIndex].image}
-        album={songAlbum}
-        artist={songArtist}
-        genre={songGenre}
-        isPlaying={isPlaying}
-        duration={duration}
-        progress={progress}
-        handleSeek={onSeek}
-        handleToggle={ontoggle}
-        handleNext={onNext}
-        handlePrevious={onPrevious}
-        volume={volume}
-        handleVolumeChange={handleVolumeChange}
-      />
+          <MediaPlayer
+            title={playlists[currentIndex]?.title || "Unknown Title"}
+            image={playlists[currentIndex]?.image}
+            album={songAlbum}
+            artist={songArtist}
+            genre={songGenre}
+            isPlaying={isPlaying}
+            duration={duration}
+            progress={progress}
+            handleSeek={onSeek}
+            handleToggle={ontoggle}
+            handleNext={onNext}
+            handlePrevious={onPrevious}
+            volume={volume}
+            handleVolumeChange={handleVolumeChange}
+          />
+        </>
+      ) : (
+        `${gettoast()}`
+      )}
     </div>
   );
-
 }
 
 export default Player;
