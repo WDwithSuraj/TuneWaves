@@ -3,7 +3,7 @@ const songRouter = require("express").Router();
 const admin = require("../middleware/admin.middleware");
 const auth = require("../middleware/auth.middleware")
 const validateObjectId = require("../middleware/validateObjectId");
-const UserModel = require("../models/blacklistModel");
+const UserModel = require("../models/userModel");
 
 ///create song
 songRouter.post("/upload", admin, async (req, res) => {
