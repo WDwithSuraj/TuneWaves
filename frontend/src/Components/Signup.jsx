@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { IconButton, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import {
   Box,
   Button,
@@ -32,7 +34,7 @@ function Signup() {
   const [responseMessage, setResponseMessage] = useState('');
   const [isSuccessAlertOpen, setIsSuccessAlertOpen] = useState(false);
   const [isErrorAlertOpen, setIsErrorAlertOpen] = useState(false);
-
+  const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -163,10 +165,33 @@ console.log(data)
             
             <Input type="email" borderColor={"gray"} textAlign={"center"}  borderRadius={"20px"} w={"300px"} mb={"15px"}  placeholder='Email' color="gray" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </FormControl>
-            <FormControl>
-            
-              <Input type="password" textAlign={"center"} borderColor={"gray"} borderRadius={"20px"} w={"300px"}mb={"15px"}  placeholder='Password' color="gray" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </FormControl>
+          <FormControl>
+      <InputGroup>
+        <Input
+          type={showPassword ? 'text' : 'password'}
+          textAlign={"center"}
+          borderColor={"gray"}
+          borderRadius={"20px"}
+          w={"300px"}
+          mb={"15px"}
+          placeholder='Password'
+          color="gray"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <InputRightElement width="4.5rem">
+          <IconButton
+            h="1.75rem"
+            size="sm"
+            marginLeft={"-28"}
+            onClick={() => setShowPassword(!showPassword)}
+            icon={showPassword ? <FaEyeSlash /> : <FaEye />}
+            variant="ghost"
+          />
+        </InputRightElement>
+      </InputGroup>
+    </FormControl>
             <FormControl>
             
               <Select color="gray"borderColor={"gray"} textAlign={"center"}  borderRadius={"20px"} w={"300px"} mb={"0px"} value={gender} onChange={(e) => setGender(e.target.value)} required>

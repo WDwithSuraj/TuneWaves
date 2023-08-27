@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, Text, AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, AlertDialogContent, AlertDialogOverlay } from '@chakra-ui/react';
 import { useNavigate } from 'react-router';
+import { IconButton, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
   const navigate = useNavigate();
@@ -10,6 +12,8 @@ function Login() {
   const [responseMessage, setResponseMessage] = useState('');
   const [isErrorAlertOpen, setIsErrorAlertOpen] = useState(false);
   const [isSuccessAlertOpen, setIsSuccessAlertOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
 const [isAdmin,setIsAdmin]=useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -111,9 +115,35 @@ const [isAdmin,setIsAdmin]=useState(false);
             <Input type="email" borderColor={"gray"} textAlign={"center"} borderRadius={"20px"} w={"300px"} mb={"25px"} placeholder='Email' color="gray" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </FormControl>
           <FormControl>
+      <InputGroup>
+        <Input
+          type={showPassword ? 'text' : 'password'}
+          textAlign={"center"}
+          borderColor={"gray"}
+          borderRadius={"20px"}
+          w={"300px"}
+          mb={"15px"}
+          placeholder='Password'
+          color="gray"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <InputRightElement width="4.5rem">
+          <IconButton
+            h="1.75rem"
+            size="sm"
+            marginLeft={"-36"}
+            onClick={() => setShowPassword(!showPassword)}
+            icon={showPassword ? <FaEyeSlash /> : <FaEye />}
+            variant="ghost"
+          />
+        </InputRightElement>
+      </InputGroup>
+    </FormControl>
 
-            <Input type="password" textAlign={"center"} borderColor={"gray"} borderRadius={"20px"} w={"300px"} mb={"15px"} placeholder='Password' color="gray" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          </FormControl>
+
+
 
           <p style={{ color: "gray", fontSize: "13px", marginTop: "25px" }}>By selecting ‘Continue’, you agree to MusicWaves’s Terms of Service and Privacy Policy.</p>
           <Button type="submit" fontSize={"xl"} p={"20px 60px 20px 60px"} ml={"65"} mb={"25px"} mt="8" bg="#2BC5B4" colorScheme="white">

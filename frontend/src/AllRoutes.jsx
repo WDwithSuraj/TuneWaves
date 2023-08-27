@@ -15,6 +15,7 @@ import { AdminManageSongView } from './Admin/adminComponent/AdminManageSongView'
 
 export const AllRoutes = () => {
   return (
+    
     <Routes>
         <Route path="/" element={<Home/>}  />
         <Route path="/login" element={<Login/>} />
