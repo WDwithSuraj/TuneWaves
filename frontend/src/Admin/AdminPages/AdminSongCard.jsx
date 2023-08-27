@@ -49,7 +49,7 @@ export const AdminSongCard = ({ music,getMusicData }) => {
         title: 'Song Updated',
         // description: "We've created your account for you.",
         status: 'success',
-        duration: 900,
+        duration: 1000,
         isClosable: true,
       })
       
@@ -64,7 +64,7 @@ export const AdminSongCard = ({ music,getMusicData }) => {
         title: 'Song Deleted',
         // description: "We've created your account for you.",
         status: 'success',
-        duration: 900,
+        duration: 1000,
         isClosable: true,
       })
     }
