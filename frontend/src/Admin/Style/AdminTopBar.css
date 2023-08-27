@@ -8,16 +8,21 @@
 }
 
 #admintopbar h1{
-    font-size: xx-large;
+    font-size: 2vw;
     font-weight: bold;
+    /* border: 2px solid; */
+    width: 120px;
 }
 
 #admintopbar>img{
-    width: 120px;
+    width: 12vw;
     margin-right: 70%;
+    /* border: 2px solid; */
 }
 
 /* media query */
 @media screen and (max-width: 700px){
-
+    #admintopbar{
+        width: 550px;
+    }
 }
