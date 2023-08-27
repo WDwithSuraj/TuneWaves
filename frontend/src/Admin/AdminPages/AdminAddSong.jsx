@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../Style/AdminAddSong.css"
-import music_logo from "../AdminImage/tunewale-logo.jpeg"
+import music_logo from "../AdminImage/tunewale-logo-white.jpg"
 import {
     Modal,
     ModalOverlay,
@@ -65,6 +65,7 @@ export const AdminAddSong = () => {
                     <Input type='text' name="image" value={addSong.image} onChange={handleChange} />
                     <FormLabel>Duration</FormLabel>
                     <Input type='number' name="duration" value={addSong.duration} onChange={handleChange} />
+                    <br />
                     <Button mt='20px' colorScheme='blue' onClick={handleAddSong} >Add Song</Button>
                 </FormControl>
             </div>

@@ -16,11 +16,12 @@ import {
   Input,
   Button
 } from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
 import axios from "axios";
 
 export const AdminSongCard = ({ music,getMusicData }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const toast = useToast()
   const [songUpdate,setSongUpdate] = useState(music)
   const token = localStorage.getItem("token")
   console.log(token)
@@ -44,6 +45,13 @@ export const AdminSongCard = ({ music,getMusicData }) => {
       axios.put(`http://localhost:8080/tuneWaves/songs/update/${id}`,songUpdate,{headers})
       .then(()=>getMusicData())
       .then(()=>onClose())
+      toast({
+        title: 'Song Updated',
+        // description: "We've created your account for you.",
+        status: 'success',
+        duration: 900,
+        isClosable: true,
+      })
       
     }
 
@@ -51,6 +59,14 @@ export const AdminSongCard = ({ music,getMusicData }) => {
       // alert(id)
       axios.delete(`http://localhost:8080/tuneWaves/songs/delete/${id}`,{headers})
       .then(()=>getMusicData())
+
+      toast({
+        title: 'Song Deleted',
+        // description: "We've created your account for you.",
+        status: 'success',
+        duration: 900,
+        isClosable: true,
+      })
     }
 
   return (
