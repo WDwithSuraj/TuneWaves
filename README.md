@@ -1,5 +1,6 @@
 # shocking-grade-9442
 
+![Logo-removebg-preview](https://github.com/WDwithSuraj/shocking-grade-9442/assets/119648587/015fcc28-34de-476b-8bc8-69d0e5fe68e1)
 # TuneWaves Music Library
 
 ## Discover the Sound of TuneWaves: Your Gateway to the Ultimate Music Experience
