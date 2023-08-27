@@ -84,3 +84,35 @@
     font-weight: 500;
     color: white;
 }
+
+/* @media screen and (max-width: 700px){
+
+} */
+
+@media screen and (max-width: 700px) {
+    #admin-manage-song {
+      width: 300px; /* Adjust the width for smaller screens */
+    }
+  
+    #admin-manage-song > h2 {
+      font-size: large; /* Adjust the font size for the heading */
+    }
+  
+    .all-music {
+      grid-template-columns: repeat(1, 1fr); /* Displ1y two cards per row on smaller screens */
+      gap: 10px; /* Reduce the gap between cards */
+      width: 90%; /* Adjust the width of the grid */
+      margin: 2% auto; /* Adjust margin for smaller screens */
+    }
+  
+    .music-img {
+      width: 100%; /* Make the image width 100% for smaller screens */
+      height: auto; /* Auto-adjust image height */
+      margin: 0; /* Remove margin for the image */
+    }
+  
+    
+  
+    /* Additional adjustments as needed for responsiveness */
+  }
+  
