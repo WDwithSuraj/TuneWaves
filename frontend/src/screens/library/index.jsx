@@ -8,6 +8,8 @@ import { Heart } from "lucide-react";
 import axios from "axios";
 
 function Library() {
+  const navigate =useNavigate()
+
   const [playlists, setPlaylists] = useState([]);
   const [likedSongs, setLikedSongs] = useState([]);
   const [like, setLike] = useState(false);
@@ -26,6 +28,10 @@ function Library() {
   };
 
   const handleLike = (id) => {
+    if(!token){
+     navigate('/login')
+     return
+    }
     if (likedSongs.includes(id)) {
       // If the song is already liked, unlike it
       setLikedSongs(likedSongs.filter((songId) => songId !== id));
@@ -83,7 +89,7 @@ function Library() {
     fetchSongs();
   }, []);
 
-  const navigate = useNavigate();
+
 
   const playPlaylist = (index) => {
     navigate("/player", { state: { index, playlists } });
