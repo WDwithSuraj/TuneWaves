@@ -17,6 +17,8 @@ import {
     Input,
     Button
   } from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
+
 import axios from "axios";
 
 export const AdminAddSong = () => {
@@ -31,6 +33,8 @@ export const AdminAddSong = () => {
     }
 
     const [addSong,setAddSong] = useState(songObj)
+    const token = localStorage.getItem("token")
+    const toast = useToast()
 
     function handleChange(e){
         const { name, value } = e.target;
@@ -39,9 +43,20 @@ export const AdminAddSong = () => {
     });
     }
 
+    const headers = {
+        Authorization: `Bearer ${token}`
+    };
+
     function handleAddSong(){
-        console.log(addSong)
-        setAddSong(songObj)
+        axios.post(`http://localhost:8080/tuneWaves/songs/upload`,addSong,{headers})
+        .then(()=>toast({
+            title: 'Song Added',
+            status: 'success',
+            duration: 1000,
+            isClosable: true,
+          }))
+          setAddSong(songObj)
+        // console.log(addSong)
     }
 
   return (
