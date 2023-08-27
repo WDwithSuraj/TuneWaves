@@ -52,7 +52,7 @@ export const AdminDashboard = () => {
                     <img src="https://avatars.githubusercontent.com/u/93611786?v=4" alt="" />
                 </div>
                 <h2 className="admin--name">Anshul</h2>
-                <h2 className="admin--email">kushwahasg4450@gmain.com</h2>
+                <h2 className="admin--email">kushwahasg4450@gmail.com</h2>
                 <h2 className="admin--gender">7906192050</h2>
             </div>
             <div id="admin-data">
@@ -60,23 +60,23 @@ export const AdminDashboard = () => {
                     <img src="https://avatars.githubusercontent.com/u/112754218?s=96&v=4" alt="" />
                 </div>
                 <h2 className="admin--name">Ayush</h2>
-                <h2 className="admin--email">ayushkumar111@gmain.com</h2>
-                <h2 className="admin--gender">xxxxxxxxxx</h2>
+                <h2 className="admin--email">ayushkumar111@gmail.com</h2>
+                <h2 className="admin--gender">9517359381</h2>
             </div>
             <div id="admin-data">
                 <div id="admin-image">
                     <img src="https://avatars.githubusercontent.com/u/119488668?s=60&v=4" alt="" />
                 </div>
                 <h2 className="admin--name">Rohit</h2>
-                <h2 className="admin--email">rohitnayal123@gmain.com</h2>
-                <h2 className="admin--gender">xxxxxxxxxx</h2>
+                <h2 className="admin--email">rohitnayal123@gmail.com</h2>
+                <h2 className="admin--gender">9536917997</h2>
             </div>
             <div id="admin-data">
                 <div id="admin-image">
                     <img src="https://avatars.githubusercontent.com/u/111695568?s=60&v=4" alt="" />
                 </div>
                 <h2 className="admin--name">Suraj</h2>
-                <h2 className="admin--email">surajkrsr98@gmain.com</h2>
+                <h2 className="admin--email">surajkrsr98@gmail.com</h2>
                 <h2 className="admin--gender">8584007663</h2>
             </div>
             <div id="admin-data">
@@ -84,12 +84,11 @@ export const AdminDashboard = () => {
                     <img src="https://avatars.githubusercontent.com/u/119648587?s=60&v=4" alt="" />
                 </div>
                 <h2 className="admin--name">Rohan</h2>
-                <h2 className="admin--email">rohankumar3053@gmain.com</h2>
-                <h2 className="admin--gender">xxxxxxxxxx</h2>
+                <h2 className="admin--email">00rohansah00.kr@gmail.com</h2>
+                <h2 className="admin--gender">7992438393</h2>
             </div>
       </div>
     </div>
   );
 };
 
-// <a href="https://ibb.co/LJzWzf1"><img src="https://i.ibb.co/wwNXN14/1668355917347.jpg" alt="1668355917347" border="0" /></a>
