@@ -22,10 +22,12 @@ export default function MediaPlayer(props) {
         <div className="song-title">
           <span>{props.title}</span>
         </div>
+        <div className="song-info-padding">
         <div className="song-info">
           <span className="info-text">( Album: {props.album}</span>,
           <span className="info-text">Artist: {props.artist}</span>,
           <span className="info-text">Genre: {props.genre} )</span>
+        </div>
         </div>
         </div>
         <div className="player-controls">

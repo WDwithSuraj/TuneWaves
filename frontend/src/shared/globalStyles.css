@@ -172,11 +172,7 @@
     animation: travel 15s linear infinite;
     white-space: nowrap;
     position: absolute;
-    top: 10;
-    right: 10%;
-    left: 10%;
     color: #fff;
-    margin-top: -15px;
   }
   
   @keyframes travel {
@@ -206,4 +202,12 @@
       flex-direction: column;
       align-items: center; 
     }
+  }
+
+  .song-info-padding{
+    width: 58%;
+    height: 30px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
   }
