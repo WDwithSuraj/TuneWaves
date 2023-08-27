@@ -36,7 +36,24 @@
     font-weight: bold;
 }
 
-
+#admin-logout{
+    /* border: 2px solid; */
+    display: flex;
+    justify-content: center;
+    color: #48BB78;
+    font-size: large;
+    font-weight: 500;
+    box-shadow: #48BB78 0px 5px 10px;
+    width: 35%;
+    margin: 15% auto;
+    padding: 2%;
+    border-radius: 10px;
+}
+#admin-logout:hover{
+    box-shadow: rgb(242, 37, 37) 0px 5px 10px;
+    color: rgb(242, 37, 37);
+    cursor: pointer;
+}
 
 /* media query */
 @media screen and (max-width: 700px){
