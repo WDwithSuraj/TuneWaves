@@ -12,8 +12,8 @@ function App() {
   return (
     <>
      
-
       <AllRoutes />
+      <Admin/>
     </>
 
 

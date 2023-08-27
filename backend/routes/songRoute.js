@@ -29,8 +29,8 @@ songRouter.get("/", async (req, res) => {
 //get all song
 songRouter.get("/:id", async (req, res) => {
     try {
-        const { songID } = req.params
-        const songs = await SongModel.findOne({ songID });
+        const { id } = req.params
+        const songs = await SongModel.findOne({ _id:id });
         res.status(200).send({ data: songs })
     } catch (error) {
         res.send(error.message)

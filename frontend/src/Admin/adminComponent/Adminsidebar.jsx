@@ -17,9 +17,9 @@ export const Adminsidebar = () => {
           <Users className="sidelogo" /> <h3>Users</h3>
         </div>
       </Link>
-      <Link>
+      <Link to='/admin/addsong' > 
         <div className="sidetitle">
-          <Music2 className="sidelogo" /> <h3>Songs</h3>
+          <Music2 className="sidelogo" /> <h3>Add Songs</h3>
         </div>
       </Link>
       <Link to='/admin/managesong' >
