@@ -22,22 +22,21 @@ function Library() {
       
   }, [])
 
-  console.log(playlists)
 
   const navigate=useNavigate()
 
-  const playPlaylist=(_id)=>{
-    navigate("/player",{state:{id:_id}})
+  const playPlaylist=(index)=>{
+    navigate("/player",{state:{index,playlists}})
   }
 
   return (
     <div className="screen-container">
     <div className="library-body">
-      {playlists?.map((playlist) => (
+      {playlists?.map((playlist,index) => (
         <div
           className="playlist-card"
           key={playlist._id}
-           onClick={() => playPlaylist(playlist._id)}
+           onClick={() => playPlaylist(index)}
         >
           <img
             src={playlist.image}
