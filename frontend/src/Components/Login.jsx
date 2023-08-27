@@ -28,10 +28,11 @@ const [isAdmin,setIsAdmin]=useState(false);
         body: JSON.stringify(formData),
       });
 
+
       const data = await response.json();
-      // console.log(data);
-      // console.log(data.user.isAdmin);
+     
   
+
       if (response.ok) {
         setResponseMessage('Login successful!');
         openSuccessAlert();
