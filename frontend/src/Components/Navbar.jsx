@@ -12,9 +12,10 @@ import {
   MenuItem,
   Button,
 } from '@chakra-ui/react';
-import { FiSearch, FiMusic } from 'react-icons/fi'; // Correct import
+import { FiSearch, FiMusic, FiUser } from 'react-icons/fi'; // Correct import
 import { FiLogIn, FiUserPlus } from 'react-icons/fi'; // Correct import
 import Login from './Login';
+import { FaSignLanguage } from 'react-icons/fa';
 // import { FiSearch, FiMusic } from '@chakra-ui/icons';
 
 const languages = [
@@ -36,6 +37,8 @@ const Navbar = () => {
   const navigate=useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const user=localStorage.getItem("user")
+const token=localStorage.getItem("token")
   useEffect(() => {
     fetch("http://localhost:8080/tuneWaves/songs")
       .then((res) => res.json())
@@ -70,10 +73,11 @@ const Navbar = () => {
       align="center"
       padding="1rem"
       height='20'
+      width={"auto"}
       borderBottom="1px solid #eee"
       boxShadow="0px 2px 4px rgba(0, 0, 0, 0.1)"
       backgroundColor="#253653"
-      margin= '-3px'
+      margin= '-0.8px'
   
     
       // backgroundColor=" #e5e5f7"
@@ -134,24 +138,26 @@ const Navbar = () => {
       <Spacer />
 
       {/* Music and Language Options */}
-      <Box>
+      {/* <Box>
         <Menu>
           <MenuButton
             as={IconButton}
-            // icon={<FiMusic />}
+            icon={<FaSignLanguage />}
             variant="ghost"
             size="sm"
+            backgroundColor={"gray"}
+            marginRight={"30"}
           />
-          <MenuList>
+          <MenuList pl>
             {languages.map((language) => (
               <MenuItem key={language}>{language}</MenuItem>
             ))}
           </MenuList>
         </Menu>
-      </Box>
-
+      </Box> */}
+      {/* <a href="" style={{}}><b><h3 style={{color:"#e99d72",fontFamily:"sans-serif",paddingRight:"30px"}}>{user}</h3></b></a> */}
       
-      <Box>
+      {token?<><b><h3 style={{color:"#4CAF50",fontFamily:"sans-serif",paddingRight:"8px",fontWeight:"bolder"}}>{user}</h3></b><IconButton   variant="ghost" icon={<FiUser />} style={{color:"#e99d72",fontFamily:"sans-serif",marginRight:"30px"}} placeholder='user'/></>:<Box>
         {/* Use FiLogIn and FiUserPlus icons for Login and Sign Up */}
         <IconButton
           icon={<FiLogIn />}
@@ -174,7 +180,7 @@ const Navbar = () => {
           padding={4}
           onClick={() => navigate("/signup")}
         />
-      </Box>
+      </Box>}
     </Flex>
   );
 };

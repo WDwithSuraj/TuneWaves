@@ -34,7 +34,8 @@ const [isAdmin,setIsAdmin]=useState(false);
 
 
       const data = await response.json();
-
+      console.log(data);
+      localStorage.setItem('user',data.user.name)
       if (response.ok) {
         setResponseMessage('Login successful!');
         openSuccessAlert();
@@ -42,7 +43,7 @@ const [isAdmin,setIsAdmin]=useState(false);
 
        setTimeout(()=>{
         data.user.isAdmin?navigate("/admin"):navigate("/")
-       },2000)
+       },1000)
         setEmail('');
         setPassword('');
       } else {
@@ -86,17 +87,21 @@ const [isAdmin,setIsAdmin]=useState(false);
     >
        {/* Left half */}
        <Box flex="1" pt={81} pl={160} pb={189} h={"100vh"} background={"#3A2619"} >
-        <img
-          width="12%"
-          onClick={() => navigate("/")}
-          src="logo1.jpg"
-          alt=""
-          style={{ position: 'absolute', top: -10, left: 5 }}
-        />
-        <img width={"72%"}  src="/Register.png" alt="" />
+   
+        <Box style={{display:"flex"}}>
+      <a href="./">  <img
+          src="Musiclogo.png"
+          alt="Logo"
+          
+          // onClick={()=>{navigate("/")}}
+          style={{ width: '90px', height: 'auto' ,position: 'absolute', top: -6, left: 15 }}
+        /></a>
+        <a href="./"><h4 style={{marginTop:"30px",fontFamily:"Fantasy", position: 'absolute', top: -8, left: 68,color:'#d5d5d5'}}>TuneWaves</h4></a>
+      </Box>
+        <img width={"72%"}  src="/Badshah.png" alt="" />
         <b>
           <h2 style={{ textAlign: "center", marginRight: "120px", fontSize: "25px", color: "#FFFFFF" }}>All Your Music.</h2>
-          <h2 style={{ textAlign: "center", marginRight: "120px", fontSize: "20px", color: "#88553E" }}>Anytime,anywhere</h2>
+          <h2 style={{ textAlign: "center", marginRight: "120px", fontSize: "20px", color: "#f6e630" }}>Anytime,anywhere</h2>
         </b>
       </Box>
 
