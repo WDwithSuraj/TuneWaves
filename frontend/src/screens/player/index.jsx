@@ -1,38 +1,95 @@
-import React, { useEffect, useState } from 'react'
-import { Musicplayer } from '../../Components/Musicplayer'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
+
+import React, { useRef, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import MediaPlayer from "./MediaPlayer";
 
 function Player() {
+  const { index, playlists } = useLocation().state;
+  const audioPlayer = useRef(null);
 
-  const [song,setSong]=useState({})
+  const [currentIndex, setCurrentIndex] = useState(index || 0);
+  const [isPlaying, setPlaying] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(100);
+  const [volume, setVolume] = useState(1);
 
-  
+  const songAlbum = playlists[currentIndex].album;
+  const songArtist = playlists[currentIndex].artist;
+  const songGenre = playlists[currentIndex].genre;
 
-  const {id} =useParams()
-  console.log(id,"yyyyyyyyy")
+  const songSource = playlists[currentIndex].source;
 
+  useEffect(() => {
+    if (isPlaying) {
+      audioPlayer.current.play();
+    } else {
+      audioPlayer.current.pause();
+    }
+  }, [isPlaying]);
 
-  const getSong=()=>{
-      axios.get(`http://localhost:8080/tuneWaves/songs/${id}` )
-      .then((data)=>{
-        //console.log(data.data.data.source)
-        setSong(data.data.data)
-      })
-  }
+  useEffect(() => {
+    setPlaying(false);
+    setProgress(0);
+  }, [currentIndex]);
 
+  const ontoggle = () => {
+    setPlaying((prev) => !prev);
+  };
 
-useEffect(()=>{
-getSong()
-},[])
-console.log(song,"this is song")
+  const onProgressChange = () => {
+    setProgress(audioPlayer.current.currentTime);
+  };
 
+  const onSeek = (currentTime) => {
+    audioPlayer.current.currentTime = currentTime;
+    setProgress(currentTime);
+  };
+
+  const onNext = () => {
+    setCurrentIndex((prev) => (prev + 1 == playlists.length ? 0 : prev + 1));
+  };
+
+  const onPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? playlists.length - 1 : prev - 1));
+  };
+
+  const handleVolumeChange = (newVolume) => {
+    audioPlayer.current.volume = newVolume;
+    setVolume(newVolume);
+  };
 
   return (
-    <div>
-      <Musicplayer source={song.source}/>
+    <div className="screen-container">
+      <audio
+        ref={audioPlayer}
+        onCanPlay={() => {
+          setDuration(audioPlayer.current.duration);
+          isPlaying === null && setPlaying(true);
+        }}
+        onTimeUpdate={onProgressChange}
+        controls={false}
+        src={songSource}
+      ></audio>
+
+      <MediaPlayer
+        title={playlists[currentIndex].title}
+        image={playlists[currentIndex].image}
+        album={songAlbum}
+        artist={songArtist}
+        genre={songGenre}
+        isPlaying={isPlaying}
+        duration={duration}
+        progress={progress}
+        handleSeek={onSeek}
+        handleToggle={ontoggle}
+        handleNext={onNext}
+        handlePrevious={onPrevious}
+        volume={volume}
+        handleVolumeChange={handleVolumeChange}
+      />
     </div>
-  )
+  );
+
 }
 
-export default Player
+export default Player;
