@@ -12,6 +12,10 @@
     font-weight: bold;
 }
 
+#admintopbar>img{
+    width: 120px;
+    margin-right: 70%;
+}
 
 /* media query */
 @media screen and (max-width: 700px){

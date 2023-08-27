@@ -13,7 +13,7 @@ function App() {
     <>
      
       <AllRoutes />
-      <Admin/>
+      {/* <Admin/> */}
     </>
 
 

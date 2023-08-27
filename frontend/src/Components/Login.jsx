@@ -25,7 +25,7 @@ function Login() {
       });
 
       const data = await response.json();
-console.log(data);
+// console.log(data);
       if (response.ok) {
         setResponseMessage('Login successful!');
         openErrorAlert('Login Successful');
