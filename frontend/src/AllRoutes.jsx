@@ -7,6 +7,7 @@ import {Admin} from "./Admin/Admin"
 
 export const AllRoutes = () => {
   return (
+    
     <Routes>
         <Route path="/*" element={<Home/>}  />
         <Route path="/login" element={<Login/>} />
