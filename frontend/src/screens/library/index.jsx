@@ -1,4 +1,4 @@
-// Library.js
+
 import React, { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
 import "./library.css";
@@ -30,7 +30,7 @@ function Library() {
       // If the song is already liked, unlike it
       setLikedSongs(likedSongs.filter((songId) => songId !== id));
     } else {
-      // If the song is not liked, like it
+      // If the song is not liked, like it then do this 
       setLikedSongs([...likedSongs, id]);
     }
 
@@ -131,3 +131,6 @@ function Library() {
 }
 
 export default Library;
+
+
+
