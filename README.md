@@ -19,7 +19,6 @@ TuneWaves is a dynamic music streaming and management platform that brings the w
   - [User Library](#user-library)
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
-- [License](#license)
 
 
 ## Features
@@ -74,4 +73,4 @@ TuneWaves is a dynamic music streaming and management platform that brings the w
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/tunewaves.git
+   git clone [https://github.com/your-username/tunewaves.git](https://github.com/WDwithSuraj/shocking-grade-9442.git)https://github.com/WDwithSuraj/shocking-grade-9442.git
