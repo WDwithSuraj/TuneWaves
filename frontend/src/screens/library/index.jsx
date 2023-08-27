@@ -14,20 +14,48 @@ import axios from "axios";
 function Library() {
   const [playlists, setPlaylists] = useState([]);
   const [likedSongs, setLikedSongs] = useState([]);
-
+  const [like, setLike] = useState(false)
   const token=localStorage.getItem("token");
   console.log(token)
 
-  useEffect(() => {
+
+  const fetchSongs = () => {
     fetch("http://localhost:8080/tuneWaves/songs")
-      .then((res) => res.json())
-      .then((data) => {
-        setPlaylists(data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    .then((res) => res.json())
+    .then((data) => {
+      setPlaylists(data.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+  const fetchLikedSongs = () => {
+    fetch("http://localhost:8080/tuneWaves/songs/like",{
+      method: "GET",
+      headers : {
+        Authorization:`Bearer ${token}`,
+      }
+    }).then((res)=>{
+      return res.json()
+     })
+     .then((data)=>{
+      let temp = []
+      data.data?.map((el => temp.push(el._id)))
+      setLikedSongs(temp)
+     })
+      .catch((err)=>{
+       console.log(err)
+     })
+  }
+
+  useEffect(()=> {
+      fetchSongs()
+  },[])
+
+  useEffect(() => {
+    fetchLikedSongs()
+  }, [like]);
 
   const handleLike = (id) => {
     if (likedSongs.includes(id)) {
@@ -38,17 +66,30 @@ function Library() {
       setLikedSongs([...likedSongs, id]);
     }
 
+    // const headers={
+    //   Authorization:`Bearer ${token}`
+    // }
     
-    axios.put(`http://localhost:8080/tuneWaves/songs/like/${id}`,{
-      Authorization:`Bearer ${token}`
+    fetch(`http://localhost:8080/tuneWaves/songs/like/${id}`,{
+      method:"PUT",
+      headers:{
+        Authorization:`Bearer ${token}`,
+
+      }
     })
     .then((res)=>{
-      console.log(res)
+     return res.json()
+    })
+    .then((data)=>{
+      setLike(!like)
     })
     .catch((err)=>{
       console.log(err)
     })
   };
+
+
+
 
   return (
     <div className="screen-container">
