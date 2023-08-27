@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../Style/AdminUsers.css";
 import { AdminUserCard } from "./AdminUserCard";
+import axios from "axios";
 
 export const AdminUsers = () => {
-  let userObj = [
-    {
-      name: "Goku",
-      email: "goku123@gmail.com",
-      gender: "male",
-    },
-    { name: "Gohan", email: "gohan123@gmail.com", gender: "female" },
-  ];
+  const token = localStorage.getItem("token");
+  const [userData, setUserData] = useState([]);
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  function getUsers() {
+    axios
+      .get(`http://localhost:8080/tuneWaves/users`, { headers })
+      .then((res) => {
+        setUserData(res.data.data);
+      });
+  }
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   return (
     <div id="admin-user">
@@ -20,10 +31,11 @@ export const AdminUsers = () => {
         <div className="admin-user-name">{"Name"}</div>
         <div className="admin-user-email">{"E-mail"}</div>
         <div className="admin-user-gender">{"Gender"}</div>
+        <div className="admin-user-gender">{"Delete"}</div>
       </div>
       <div>
-        {userObj.map((user) => (
-          <AdminUserCard user={user} />
+        {userData?.map((user) => (
+          <AdminUserCard user={user} getUsers={getUsers} />
         ))}
       </div>
     </div>
