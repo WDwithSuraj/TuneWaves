@@ -20,6 +20,13 @@ TuneWaves is a dynamic music streaming and management platform that brings the w
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 
+## For Deploying
+![](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+
+
+
+- Live preview : 
+
 
 ## Features
 
@@ -73,4 +80,4 @@ TuneWaves is a dynamic music streaming and management platform that brings the w
 1. Clone the repository:
 
    ```bash
-   git clone [https://github.com/your-username/tunewaves.git](https://github.com/WDwithSuraj/shocking-grade-9442.git)https://github.com/WDwithSuraj/shocking-grade-9442.git
+   git clone https://github.com/WDwithSuraj/shocking-grade-9442.git
