@@ -22,7 +22,8 @@ export const AdminSongCard = ({ music,getMusicData }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [songUpdate,setSongUpdate] = useState(music)
-
+  const token = localStorage.getItem("token")
+  console.log(token)
   function handleChange(e){
     const { name, value } = e.target;
     setSongUpdate((prev) => {
@@ -30,13 +31,17 @@ export const AdminSongCard = ({ music,getMusicData }) => {
     });
   }
 
+  const headers = {
+    Authorization: `Bearer ${token}`
+  };
+
    function handleEdit(id){
      onOpen()
     }
     
     function handleUpdate(id){
       // alert(id)
-      axios.put(`http://localhost:8080/tuneWaves/songs/update/${id}`,songUpdate)
+      axios.put(`http://localhost:8080/tuneWaves/songs/update/${id}`,songUpdate,{headers})
       .then(()=>getMusicData())
       .then(()=>onClose())
       
@@ -44,7 +49,7 @@ export const AdminSongCard = ({ music,getMusicData }) => {
 
     function handleDelete(id){
       // alert(id)
-      axios.delete(`http://localhost:8080/tuneWaves/songs/delete/${id}`)
+      axios.delete(`http://localhost:8080/tuneWaves/songs/delete/${id}`,{headers})
       .then(()=>getMusicData())
     }
 

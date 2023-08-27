@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MediaPlayer from "./MediaPlayer";
@@ -88,6 +89,7 @@ function Player() {
       />
     </div>
   );
+
 }
 
 export default Player;

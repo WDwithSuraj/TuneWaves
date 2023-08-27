@@ -3,7 +3,7 @@ const songRouter = require("express").Router();
 const admin = require("../middleware/admin.middleware");
 const auth = require("../middleware/auth.middleware")
 const validateObjectId = require("../middleware/validateObjectId");
-const UserModel = require("../models/blacklistModel");
+const UserModel = require("../models/userModel");
 
 ///create song
 songRouter.post("/upload", admin, async (req, res) => {
@@ -29,8 +29,8 @@ songRouter.get("/", async (req, res) => {
 //get all song
 songRouter.get("/:id", async (req, res) => {
     try {
-        const { songID } = req.params
-        const songs = await SongModel.findOne({ songID });
+        const { id } = req.params
+        const songs = await SongModel.findOne({ _id: id });
         res.status(200).send({ data: songs })
     } catch (error) {
         res.send(error.message)
@@ -62,6 +62,7 @@ songRouter.delete("/delete/:id", [validateObjectId, admin], async (req, res) => 
 })
 
 
+
 //like song
 songRouter.put("/like/:id", [validateObjectId, auth], async (req, res) => {
     const { user } = req;
@@ -69,9 +70,7 @@ songRouter.put("/like/:id", [validateObjectId, auth], async (req, res) => {
         let resMessage = "";
         const song = await SongModel.findById(req.params.id);
         if (!song) return res.status(400).send({ message: "Song does not exist" })
-
         const likedUser = await UserModel.findById(user._id);
-
         const index = likedUser.likedSongs.indexOf(song._id);
 
         if (index === -1) {
@@ -89,11 +88,6 @@ songRouter.put("/like/:id", [validateObjectId, auth], async (req, res) => {
 })
 
 
-// Get liked songs
-songRouter.get("/like", auth, async (req, res) => {
-    const user = await UserModel.findById(req.user._id);
-    const songs = await SongModel.find({ _id: user.likedSongs });
-    res.status(200).send({ data: songs });
-});
+
 
 module.exports = songRouter

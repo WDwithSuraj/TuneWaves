@@ -1,13 +1,14 @@
 #Admin-dashboard{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    width: 79vw;
-    height: 90vh;
+    width: 78%;
+    /* height: 90vh; */
     margin-left: 1%;
     margin-top: 6px;
     border-radius: 20px;
     text-align: center;
     position: absolute;
     background-color: rgb(253, 253, 253);
+    /* border: 2px solid; */
 }
 
 #Admin-dashboard>h2{
@@ -21,7 +22,7 @@
 #detail{
     display: flex;
     /* border: 1px solid; */
-    margin-top: 5%;
+    margin-top: 3%;
     justify-content: space-evenly;
     height: 25%;
     /* background-color: white; */
@@ -32,7 +33,7 @@
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     width: 27%;
     display: flex;
-    height: 100%;
+    height: 170px;
     border-radius: 20px;
     background-color: white;
 }
@@ -69,3 +70,60 @@
     font-weight: bold;
     color: rgb(73, 73, 73);
 }
+
+#admin-data-div{
+    /* border: 2px solid; */
+    margin-top: 2%;
+    width: 98%;
+    /* display: flex; */
+}
+#admin-data{
+    /* border: 2px solid red; */
+    display: flex;
+    width: 90%;
+    margin: auto;
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgb(73, 73, 73);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: 0px 15px 10px -19px #7b7b7b;
+    border-radius: 15px;
+}
+#admin-data:hover{
+    background-color: rgb(247, 247, 247);
+    cursor: pointer;
+}
+
+#admin-image{
+    width: 60px;
+}
+#admin-image>img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+
+.admin--name{
+    /* border: 2px solid blue; */
+    width: 200px;
+    padding: 0;
+}
+.admin--email{
+    /* border: 2px solid blue; */
+    width: 450px;
+}
+.admin--gender{
+    /* border: 2px solid blue; */
+    width: 100px;
+}
+
+/* #admin-user-head{
+    border: 2px solid brown;
+    display: flex;
+    justify-content: space-between;
+} */

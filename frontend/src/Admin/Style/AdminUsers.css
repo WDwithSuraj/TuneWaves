@@ -75,3 +75,11 @@
     color: rgb(73, 73, 73);
 
 }
+
+/* #delete-user-btn{
+    
+} */
+
+#delete-user-btn:hover{
+    cursor: pointer;
+}
