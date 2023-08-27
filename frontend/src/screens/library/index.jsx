@@ -131,35 +131,3 @@ function Library() {
 }
 
 export default Library;
-
-//     <div className="screen-container">
-//       <div className="library-body">
-//         {playlists?.map((playlist,index) => (
-//           <div className="playlist-card" key={playlist._id} onClick={() => playPlaylist(index)}>
-//             <img
-//               src={playlist.image}
-//               className="playlist-image"
-//               alt="Playlist-Art"
-//             />
-//             <p className="playlist-title">{playlist.title}</p>
-//             <p className="playlist-artist">{playlist.artist} </p>
-
-{/* <span className="like-heart" onClick={() => handleLike(playlist._id)}>
-  {likedSongs.includes(playlist._id) ? (
-    <Heart color="red" fill="red" />
-  ) : (
-    <Heart color="red" />
-  )}
-</span>; */}
-            // <div className="playlist-fade">
-            //   <IconContext.Provider value={{ size: "50px", color: "#E99D72" }}>
-            //     <Link to={`/player/${playlist._id}`}>
-            //       <AiFillPlayCircle />
-            //     </Link>
-            //   </IconContext.Provider>
-            // </div>
-
-//           </div>
-//         ))} */}
-//       </div>
-//     </div>
