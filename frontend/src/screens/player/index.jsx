@@ -28,7 +28,7 @@ function Player() {
   }, [isPlaying]);
 
   useEffect(() => {
-    setPlaying(false);
+    setPlaying(null);
     setProgress(0);
   }, [currentIndex]);
 
