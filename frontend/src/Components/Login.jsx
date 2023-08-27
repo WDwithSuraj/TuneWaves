@@ -10,7 +10,7 @@ function Login() {
   const [responseMessage, setResponseMessage] = useState('');
   const [isErrorAlertOpen, setIsErrorAlertOpen] = useState(false);
   const [isSuccessAlertOpen, setIsSuccessAlertOpen] = useState(false);
-
+const [isAdmin,setIsAdmin]=useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -29,14 +29,18 @@ function Login() {
       });
 
       const data = await response.json();
-      console.log(data);
-
+      // console.log(data);
+      // console.log(data.user.isAdmin);
+  
       if (response.ok) {
         setResponseMessage('Login successful!');
         openSuccessAlert();
         localStorage.setItem('token', data.token);
+
        setTimeout(()=>{
-        navigate("/")
+      
+     
+        data.user.isAdmin?navigate("/admin"):navigate("/")
        },2000)
         setEmail('');
         setPassword('');
