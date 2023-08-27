@@ -30,8 +30,6 @@ const [isAdmin,setIsAdmin]=useState(false);
 
 
       const data = await response.json();
-     
-  
 
       if (response.ok) {
         setResponseMessage('Login successful!');
@@ -39,8 +37,6 @@ const [isAdmin,setIsAdmin]=useState(false);
         localStorage.setItem('token', data.token);
 
        setTimeout(()=>{
-      
-     
         data.user.isAdmin?navigate("/admin"):navigate("/")
        },2000)
         setEmail('');
