@@ -11,14 +11,9 @@ import Login from "./Components/Login";
 function App() {
   return (
     <>
-     
-      <AllRoutes />
+      <AllRoutes/>
       {/* <Admin/> */}
     </>
-
-
-
-
   );
 }
 

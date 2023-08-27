@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Adminsidebar = () => {
   return (
     <div id="sideBar">
-      <Link to='/admin/dashboard' >
+      <Link to='/admin/' >
         <div className="sidetitle">
           <AlignVerticalJustifyEnd className="sidelogo" />
           <h3>Dashboard</h3>
