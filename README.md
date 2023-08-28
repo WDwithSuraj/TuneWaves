@@ -32,7 +32,7 @@ TuneWaves is not just a platform, it's a musical journey waiting to be written b
 ![](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
 
-- Live preview :
+- Live preview : https://tunewaves.vercel.app/
 
 # Different Pages of Website
 ### Homepage
