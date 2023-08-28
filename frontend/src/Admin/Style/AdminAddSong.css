@@ -19,14 +19,12 @@
 
 #add-song{
     display: flex;
-    /* border: 2px solid; */
     width: 90%;
     margin: 5% auto;
     justify-content: space-evenly;
 }
 
 #add-song>div{
-    /* border: 2px solid red; */
     width: 40%;
     text-align: center;
     

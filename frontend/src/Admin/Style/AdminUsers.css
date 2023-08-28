@@ -1,14 +1,12 @@
 #admin-user{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     width: 79vw;
-    /* height: 90vh; */
     margin-left: 1%;
     margin-top: 6px;
     border-radius: 20px;
     text-align: center;
     position: absolute;
     background-color: rgb(253, 253, 253);
-    /* border: 2px solid; */
 }
 
 #admin-user>h2{
@@ -29,7 +27,6 @@
 }
 
 #admin-user-card>div{
-    /* border: 2px solid red; */
     color: rgb(73, 73, 73);
     height: 50px;
     display: flex;
@@ -56,7 +53,6 @@
 }
 
 #admin-user-head{
-    /* border: 2px solid; */
     display: flex;
     margin: 1% auto;
     justify-content: space-between;
@@ -65,8 +61,6 @@
 }
 
 #admin-user-head>div{
-    /* width:300px; */
-    /* border: 2px solid red; */
     height: 50px;
     display: flex;
     align-items: center;
@@ -76,9 +70,6 @@
 
 }
 
-/* #delete-user-btn{
-    
-} */
 
 #delete-user-btn:hover{
     cursor: pointer;

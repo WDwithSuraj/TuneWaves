@@ -10,17 +10,14 @@
 #admintopbar h1{
     font-size: 2vw;
     font-weight: bold;
-    /* border: 2px solid; */
     width: 120px;
 }
 
 #admintopbar>img{
     width: 12vw;
     margin-right: 70%;
-    /* border: 2px solid; */
 }
 
-/* media query */
 @media screen and (max-width: 700px){
     #admintopbar{
         width: 550px;
