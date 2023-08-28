@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { useLocation,useNavigate } from "react-router-dom";
 import MediaPlayer from "./MediaPlayer";
 import { useToast } from "@chakra-ui/react";
+import Loading from "../../Components/Loading";
 
 function Player() {
   const toast = useToast()
@@ -116,7 +117,7 @@ function Player() {
           />
         </>
       ) : (
-        `${gettoast()}`
+        `${gettoast()}` && <Loading/>
       )}
     </div>
   );

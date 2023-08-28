@@ -6,7 +6,8 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { Heart } from "lucide-react";
 import axios from "axios";
-import { Skeleton, SkeletonCircle, SkeletonText, Stack } from '@chakra-ui/react'
+import { Skeleton, SkeletonCircle, SkeletonText, Stack,Heading } from '@chakra-ui/react'
+import Loading from "../../Components/Loading";
 
 function Library() {
   const navigate = useNavigate()
@@ -19,16 +20,16 @@ function Library() {
   console.log(token);
 
   const fetchSongs = () => {
-
+    setLoadin(true)
     fetch("https://cute-lime-sweatpants.cyclic.app/tuneWaves/songs")
       .then((res) => res.json())
       .then((data) => {
-        setLoadin(true)
         setPlaylists(data.data);
         setLoadin(false)
       })
       .catch((err) => {
         console.log(err);
+        setLoadin(false)
       });
   };
 
@@ -107,11 +108,7 @@ function Library() {
 
       <div className="library-body">
         {
-          loading ? <Stack>
-            <Skeleton height='20px' />
-            <Skeleton height='20px' />
-            <Skeleton height='20px' />
-          </Stack>
+          loading ?<Loading/>
             :
             <>
               {

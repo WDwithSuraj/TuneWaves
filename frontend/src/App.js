@@ -7,13 +7,16 @@ import Navbar from "./Components/Navbar";
 import { AllRoutes } from "./AllRoutes";
 import Signup from "./Components/Signup";
 import Login from "./Components/Login";
+// import Dummy from "./screens/Dummy";
+
 
 function App() {
   return (
     <>
-     
+    {/* <Dummy/> */}
       <AllRoutes />
       {/* <Admin/> */}
+
     </>
 
 
