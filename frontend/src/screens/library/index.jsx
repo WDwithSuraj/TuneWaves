@@ -99,12 +99,15 @@ function Library() {
 
   return (
     <div className="screen-container">
+    
       <div className="library-body">
+      
         {playlists?.map((playlist, index) => (
           <div
             className="playlist-card"
             key={playlist._id}
           >
+         
             <img
               src={playlist.image}
               className="playlist-image"
