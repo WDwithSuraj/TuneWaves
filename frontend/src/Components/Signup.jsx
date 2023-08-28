@@ -25,7 +25,7 @@ import {
 } from '@chakra-ui/react';
 
 function Signup() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -38,7 +38,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
+
     const formData = {
       email: email,
       name: name,
@@ -48,7 +48,7 @@ function Signup() {
     };
 
     try {
-      const response = await fetch('http://localhost:8080/tuneWaves/users/register', {
+      const response = await fetch('https://cute-lime-sweatpants.cyclic.app/tuneWaves/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,13 +57,13 @@ function Signup() {
       });
 
       const data = await response.json();
-console.log(data)
+      console.log(data)
       if (response.ok) {
         setResponseMessage('Sign-up successful!');
         openSuccessAlert();
         setTimeout(() => {
-          navigate("/");
-        }, 3000); 
+          navigate("/login");
+        }, 2000);
         setEmail('');
         setName('');
         setPassword('');
@@ -99,7 +99,7 @@ console.log(data)
 
   return (
     <Box
-     
+
       backgroundSize="cover"
       backgroundPosition="center"
       height="auto"
@@ -110,27 +110,27 @@ console.log(data)
     >
       {/* Left half */}
       <Box flex="0.8" pt={81} pl={40} pb={189} h={"100vh"} background={"#3A2619"} >
-      <Box style={{display:"flex"}}>
-      <a href="./">  <img
-          src="Musiclogo.png"
-          alt="Logo"
-          
-          // onClick={()=>{navigate("/")}}
-          style={{ width: '90px', height: 'auto' ,position: 'absolute', top: -6, left: 15 }}
-        /></a>
-        <a href="./"><h4 style={{marginTop:"30px",fontFamily:"Fantasy", position: 'absolute', top: -8, left: 68,color:'#d5d5d5'}}>TuneWaves</h4></a>
-      </Box>
-     
+        <Box style={{ display: "flex" }}>
+          <a href="./">  <img
+            src="Musiclogo.png"
+            alt="Logo"
 
-       <img width={"72%"}src=" /Badshah.png" alt="" />
-    <b>   <h2 style={{textAlign:"center",marginRight:"120px",fontSize:"25px",color:"#FFFFFF"}}>All Your Music.</h2>
-       <h2 style={{textAlign:"center",marginRight:"120px",fontSize:"20px",color:"#f6e630"}}>Anytime,anywhere</h2></b>
+            // onClick={()=>{navigate("/")}}
+            style={{ width: '90px', height: 'auto', position: 'absolute', top: -6, left: 15 }}
+          /></a>
+          <a href="./"><h4 style={{ marginTop: "30px", fontFamily: "Fantasy", position: 'absolute', top: -8, left: 68, color: '#d5d5d5' }}>TuneWaves</h4></a>
+        </Box>
+
+
+        <img width={"72%"} src=" /Badshah.png" alt="" />
+        <b>   <h2 style={{ textAlign: "center", marginRight: "120px", fontSize: "25px", color: "#FFFFFF" }}>All Your Music.</h2>
+          <h2 style={{ textAlign: "center", marginRight: "120px", fontSize: "20px", color: "#f6e630" }}>Anytime,anywhere</h2></b>
       </Box>
 
       {/* Right half */}
       <Box flex="1" display="flex" justifyContent="flex-end">
         {/* <HStack spacing={6} alignItems="flex-start"> */}
-          {/* <VStack mt={40} ml={10} alignItems="flex-start">
+        {/* <VStack mt={40} ml={10} alignItems="flex-start">
           <Button
             variant="outline"
             size="lg"
@@ -152,90 +152,90 @@ console.log(data)
             Sign Up with Twitter
           </Button>
           </VStack> */}
-          <Box  p={10} mt={0} height={"500px"} marginRight={"120px"}  marginTop={"-150px"} rounded="lg"  maxWidth="700px" width="70%" style={{ backdropFilter: 'blur(5px)',fontFamily:"sans-serif" }}>
-          <h4 style={{position:"absolute",top:-40 , right:-80,fontSize:"13px"}}>Already have an acoount? <button onClick={()=>navigate("/login")} style={{border:"1px solid gray",borderRadius:"13px",padding:" 5px 17px"}}>Login</button></h4>
+        <Box p={10} mt={0} height={"500px"} marginRight={"120px"} marginTop={"-150px"} rounded="lg" maxWidth="700px" width="70%" style={{ backdropFilter: 'blur(5px)', fontFamily: "sans-serif" }}>
+          <h4 style={{ position: "absolute", top: -40, right: -80, fontSize: "13px" }}>Already have an acoount? <button onClick={() => navigate("/login")} style={{ border: "1px solid gray", borderRadius: "13px", padding: " 5px 17px" }}>Login</button></h4>
 
-         
-         <b style={{textAlign:"center",fontSize:"30px",marginLeft:"20px"}}>  <h1 >Welcome to TuneWave.</h1></b>
-           <p style={{marginTop:"-6px",marginLeft:"52px",fontSize:"18px"}}>Sign up with your Email address</p>
-           <form  onSubmit={handleSubmit} style={{paddingLeft:"80px",paddingTop:"10px",marginTop:"30px",boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px"}} >
-          
+
+          <b style={{ textAlign: "center", fontSize: "30px", marginLeft: "20px" }}>  <h1 >Welcome to TuneWave.</h1></b>
+          <p style={{ marginTop: "-6px", marginLeft: "52px", fontSize: "18px" }}>Sign up with your Email address</p>
+          <form onSubmit={handleSubmit} style={{ paddingLeft: "80px", paddingTop: "10px", marginTop: "30px", boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px" }} >
+
             <FormControl >
-             
+
               <Input type="text" textAlign={"center"} borderColor={"gray"} borderRadius={"20px"} w={"300px"} mt={"20px"} mb={"15px"} placeholder='Name' color="gray" value={name} onChange={(e) => setName(e.target.value)} required />
             </FormControl>
             <FormControl>
-            
-            <Input type="email" borderColor={"gray"} textAlign={"center"}  borderRadius={"20px"} w={"300px"} mb={"15px"}  placeholder='Email' color="gray" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          </FormControl>
-          <FormControl>
-      <InputGroup>
-        <Input
-          type={showPassword ? 'text' : 'password'}
-          textAlign={"center"}
-          borderColor={"gray"}
-          borderRadius={"20px"}
-          w={"300px"}
-          mb={"15px"}
-          placeholder='Password'
-          color="gray"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <InputRightElement width="4.5rem">
-          <IconButton
-            h="1.75rem"
-            size="sm"
-            marginLeft={"-28"}
-            onClick={() => setShowPassword(!showPassword)}
-            icon={showPassword ? <FaEyeSlash /> : <FaEye />}
-            variant="ghost"
-          />
-        </InputRightElement>
-      </InputGroup>
-    </FormControl>
+
+              <Input type="email" borderColor={"gray"} textAlign={"center"} borderRadius={"20px"} w={"300px"} mb={"15px"} placeholder='Email' color="gray" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            </FormControl>
             <FormControl>
-            
-              <Select color="gray"borderColor={"gray"} textAlign={"center"}  borderRadius={"20px"} w={"300px"} mb={"0px"} value={gender} onChange={(e) => setGender(e.target.value)} required>
+              <InputGroup>
+                <Input
+                  type={showPassword ? 'text' : 'password'}
+                  textAlign={"center"}
+                  borderColor={"gray"}
+                  borderRadius={"20px"}
+                  w={"300px"}
+                  mb={"15px"}
+                  placeholder='Password'
+                  color="gray"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <InputRightElement width="4.5rem">
+                  <IconButton
+                    h="1.75rem"
+                    size="sm"
+                    marginLeft={"-28"}
+                    onClick={() => setShowPassword(!showPassword)}
+                    icon={showPassword ? <FaEyeSlash /> : <FaEye />}
+                    variant="ghost"
+                  />
+                </InputRightElement>
+              </InputGroup>
+            </FormControl>
+            <FormControl>
+
+              <Select color="gray" borderColor={"gray"} textAlign={"center"} borderRadius={"20px"} w={"300px"} mb={"0px"} value={gender} onChange={(e) => setGender(e.target.value)} required>
                 <option color="gray" value="">Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
               </Select>
             </FormControl>
-            <p style={{color:"gray",fontSize:"13px",marginTop:"25px"}}>By selecting ‘Continue’, you agree to MusicWaves’s Terms of Service and Privacy Policy.</p>
+            <p style={{ color: "gray", fontSize: "13px", marginTop: "25px" }}>By selecting ‘Continue’, you agree to MusicWaves’s Terms of Service and Privacy Policy.</p>
             <Button type="submit" fontSize={"xl"} p={"20px 60px 20px 60px"} ml={"43"} mb={"25px"} mt="8" bg="#2BC5B4" colorScheme="white">
-             Continue
+              Continue
             </Button>
           </form>
           {responseMessage && <Text color="white">{responseMessage}</Text>}
-          </Box>
+        </Box>
         {/* </HStack> */}
-        
-      <AlertDialog isOpen={isSuccessAlertOpen} onClose={closeSuccessAlert}>
-        <AlertDialogOverlay>
-          <AlertDialogContent bg="#2BC5B4" color="white" borderRadius="md">
-            <AlertDialogHeader>Success</AlertDialogHeader>
-            <AlertDialogBody>{responseMessage}</AlertDialogBody>
-            <AlertDialogFooter>
-              <Button onClick={closeSuccessAlert}>Close</Button>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialogOverlay>
-      </AlertDialog>
 
-      <AlertDialog isOpen={isErrorAlertOpen} onClose={closeErrorAlert}>
-        <AlertDialogOverlay>
-          <AlertDialogContent>
-            <AlertDialogHeader>Please try again</AlertDialogHeader>
-            <AlertDialogBody>{responseMessage}</AlertDialogBody>
-            <AlertDialogFooter>
-              <Button onClick={closeErrorAlert}>Close</Button>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialogOverlay>
-      </AlertDialog>
+        <AlertDialog isOpen={isSuccessAlertOpen} onClose={closeSuccessAlert}>
+          <AlertDialogOverlay>
+            <AlertDialogContent bg="#2BC5B4" color="white" borderRadius="md">
+              <AlertDialogHeader>Success</AlertDialogHeader>
+              <AlertDialogBody>{responseMessage}</AlertDialogBody>
+              <AlertDialogFooter>
+                <Button onClick={closeSuccessAlert}>Close</Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
+
+        <AlertDialog isOpen={isErrorAlertOpen} onClose={closeErrorAlert}>
+          <AlertDialogOverlay>
+            <AlertDialogContent>
+              <AlertDialogHeader>Please try again</AlertDialogHeader>
+              <AlertDialogBody>{responseMessage}</AlertDialogBody>
+              <AlertDialogFooter>
+                <Button onClick={closeErrorAlert}>Close</Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
       </Box>
     </Box>
   );

@@ -6,16 +6,16 @@ import React, { useEffect, useState } from 'react'
 import { IconContext } from "react-icons";
 import "./favorite.css";
 import { AiFillPlayCircle } from "react-icons/ai";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Favorite() {
 
-  const [likesongs,setLikesongs]=useState([])
+  const [likesongs, setLikesongs] = useState([])
   const token = localStorage.getItem("token");
   console.log(token);
 
-  const fetchdata=()=>{
-    fetch("http://localhost:8080/tuneWaves/songs/like", {
+  const fetchdata = () => {
+    fetch("https://cute-lime-sweatpants.cyclic.app/tuneWaves/songs/like", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -27,16 +27,16 @@ function Favorite() {
       .then((data) => {
         console.log(data)
         setLikesongs(data.data)
-        
+
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchdata()
-  },[])
+  }, [])
 
   console.log(likesongs)
 
@@ -61,9 +61,9 @@ function Favorite() {
             />
             <p className="playlist-title">{playlist.title}</p>
             <p className="playlist-artist">{playlist.artist} </p>
-            
-           
-            
+
+
+
           </div>
         ))}
       </div>

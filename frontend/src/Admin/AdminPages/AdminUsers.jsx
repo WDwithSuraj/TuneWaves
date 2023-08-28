@@ -13,7 +13,7 @@ export const AdminUsers = () => {
 
   function getUsers() {
     axios
-      .get(`http://localhost:8080/tuneWaves/users`, { headers })
+      .get(`https://cute-lime-sweatpants.cyclic.app/tuneWaves/users`, { headers })
       .then((res) => {
         setUserData(res.data.data);
       });

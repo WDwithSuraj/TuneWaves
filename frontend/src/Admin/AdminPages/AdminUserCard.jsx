@@ -3,16 +3,16 @@ import "../Style/AdminUsers.css";
 import { User2, Trash2 } from "lucide-react";
 import axios from "axios";
 
-export const AdminUserCard = ({ user,getUsers }) => {
+export const AdminUserCard = ({ user, getUsers }) => {
   const token = localStorage.getItem("token")
 
   const headers = {
     Authorization: `Bearer ${token}`
   };
 
-  function handleDelete(id){
-      axios.delete(`http://localhost:8080/tuneWaves/users/${id}`,{headers})
-      .then(()=>getUsers())
+  function handleDelete(id) {
+    axios.delete(`https://cute-lime-sweatpants.cyclic.app/tuneWaves/users/${id}`, { headers })
+      .then(() => getUsers())
   }
 
   return (
@@ -28,7 +28,7 @@ export const AdminUserCard = ({ user,getUsers }) => {
         id="delete-user-btn"
         style={{ display: "flex", justifyContent: "center" }}
       >
-        <Trash2 color="red" onClick={()=>handleDelete(user._id)} />
+        <Trash2 color="red" onClick={() => handleDelete(user._id)} />
       </div>
     </div>
   );
