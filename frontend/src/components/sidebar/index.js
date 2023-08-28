@@ -9,45 +9,37 @@ import { MdSpaceDashboard } from "react-icons/md";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
-import sideBarImage from "../../../src/Images/sideBarImage.png"
+import sideBarImage from "../../../src/Images/sideBarImage.png";
 function Sidebar() {
+  const toast = useToast();
 
-  const toast = useToast()
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  // const [image, setImage] = useState(
-  //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdLAY3C19kL0nV2bI_plU3_YFCtra0dpsYkg&usqp=CAU"
-  // );
-  const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token");
 
   const logOut = () => {
     axios(`https://cute-lime-sweatpants.cyclic.app/tuneWaves/users/logout`, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
-
     }).then((res) => {
-      localStorage.clear()
+      localStorage.clear();
       // alert("You have Logged out successfully.")
       toast({
-        title: 'You have Logged out successfully.',
+        title: "You have Logged out successfully.",
         position: "top",
-        status: 'success',
+        status: "success",
         duration: 1500,
         isClosable: true,
-      })
-
+      });
 
       setTimeout(() => {
-        window.location.reload()
-        navigate("/")
-      }, 2000)
-
-
-    })
-
-  }
+        window.location.reload();
+        navigate("/");
+      }, 2000);
+    });
+  };
 
   return (
     <div className="sidebar-container">
@@ -62,9 +54,12 @@ function Sidebar() {
         />
         <SidebarButton title="Feed" to="/feed" icon={<MdSpaceDashboard />} />
         <SidebarButton title="Trending" to="/trending" icon={<FaGripfire />} />
-
       </div>
-      <SidebarButton title="Sign Out" to="" icon={<FaSignOutAlt onClick={() => logOut()} />} />
+      <SidebarButton
+        title="Sign Out"
+        to=""
+        icon={<FaSignOutAlt onClick={() => logOut()} />}
+      />
     </div>
   );
 }
