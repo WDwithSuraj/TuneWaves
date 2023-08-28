@@ -7,7 +7,9 @@ import Loading from "../../Components/Loading";
 
 function Favorite() {
   const [likesongs, setLikesongs] = useState([]);
+
   const [loading, setLoadin] = useState(false);
+
   const token = localStorage.getItem("token");
   console.log(token);
 
@@ -25,7 +27,9 @@ function Favorite() {
       .then((data) => {
         console.log(data);
         setLikesongs(data.data);
+
         setLoadin(false);
+
       })
       .catch((err) => {
         console.log(err);

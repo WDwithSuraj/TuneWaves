@@ -29,13 +29,21 @@ TuneWaves is not just a music platform, it's your portal to a world of limitless
 TuneWaves is not just a platform, it's a musical journey waiting to be written by you. Discover the sound of TuneWaves today and let the music take you places.
 
 ## For Deploying
-![](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
 
-- Live preview :
+- Live preview : https://tunewaves.vercel.app/
+- Backend Preview : https://cute-lime-sweatpants.cyclic.app/
 
 # Different Pages of Website
 ### Homepage
+![1](https://github.com/WDwithSuraj/shocking-grade-9442/assets/119648587/2bf5132e-c63f-4888-a817-f9fafd5ae748)
+
+### Player Page
+![2](https://github.com/WDwithSuraj/shocking-grade-9442/assets/119648587/f9a90383-f003-466b-9bd1-d49466c6b412)
+
+### Admin Page
+![3](https://github.com/WDwithSuraj/shocking-grade-9442/assets/119648587/104c3f4e-f496-4151-a858-3ec107a1455f)
 
 
 ## Table of Contents
