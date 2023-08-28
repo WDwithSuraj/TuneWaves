@@ -38,6 +38,9 @@ TuneWaves is not just a platform, it's a musical journey waiting to be written b
 ### Homepage
 ![1](https://github.com/WDwithSuraj/shocking-grade-9442/assets/119648587/2bf5132e-c63f-4888-a817-f9fafd5ae748)
 
+### Media Player
+![2](https://github.com/WDwithSuraj/shocking-grade-9442/assets/119648587/f9a90383-f003-466b-9bd1-d49466c6b412)
+
 
 ## Table of Contents
 
