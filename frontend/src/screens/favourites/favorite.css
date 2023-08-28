@@ -1,14 +1,27 @@
-
 .library-body {
-    width: 94%;
-    height: 90%;
-    padding: 3%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    overflow-y: auto;
-    justify-content: space-around;
-  }
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* Remove vertical scrollbar */
+  overflow-y: scroll;
+  justify-content: space-around;
+  /* Allow horizontal scrolling */
+  overflow-x: scroll;
+  /* Hide horizontal scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Show scrollbar thumb while hovering for better user experience */
+.library-body::-webkit-scrollbar {
+  display: none;
+}
+
+
+
   
   .playlist-card {
     position: relative;
@@ -24,6 +37,8 @@
     cursor: pointer;
     box-sizing: border-box;
   }
+
+  
   
   .playlist-card:hover {
     transform: scale(1.02);

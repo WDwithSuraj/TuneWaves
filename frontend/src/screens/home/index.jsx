@@ -17,7 +17,8 @@ function Home() {
   <>
     <Navbar/>
       <div className="main-body">
-        <Sidebar /> 
+        <Sidebar />
+        
         <Routes>
           <Route path="/"  element={<Library />} />
           <Route path="/player" element={<Player />} />
@@ -26,6 +27,10 @@ function Home() {
           <Route path="/trending" element={<Trending />} />
           
         </Routes>
+        
+         
+      
+        
       </div>
   </>
    // </Router>
