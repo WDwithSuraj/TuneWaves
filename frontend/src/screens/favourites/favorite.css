@@ -5,17 +5,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  /* Remove vertical scrollbar */
   overflow-y: scroll;
   justify-content: space-around;
-  /* Allow horizontal scrolling */
   overflow-x: scroll;
-  /* Hide horizontal scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-/* Show scrollbar thumb while hovering for better user experience */
 .library-body::-webkit-scrollbar {
   display: none;
 }
@@ -108,7 +104,7 @@
     border-radius: 20px;
   }
   
-     */
+    
   
      .library-body {
       width: 94%;

@@ -1,7 +1,6 @@
 #admin-manage-song{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     width: 77.5vw;
-    /* height: 90vh; */
     margin-left: 1%;
     margin-top: 6px;
     border-radius: 20px;
@@ -16,24 +15,19 @@
     font-size: xx-large;
     font-weight: 500;
     top: 2%;
-    /* margin-bottom: 2%; */
 }
 
 .all-music{
-    /* border: 2px solid red; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
-    /* margin-top: 3%; */
    
     margin: 2% auto;
-    /* padding: 2%; */
     width: 95%;
 }
 
 #music-card{
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    /* width: 0%; */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -41,7 +35,6 @@
 }
 
 .music-img{
-    /* border: 2px solid green; */
     width: 70%;
     margin: 2% auto ;
     height: 100px;
@@ -52,16 +45,11 @@
 }
 
 .music-detail{
-    /* border: 2px solid rgb(117, 117, 3); */
-    /* text-align: left; */
     width: 90%;
-    /* margin: 15% auto; */
-    /* margin-top: 50%; */
     margin: 50% auto 5% auto;
 }
 
 .music-detail>h3{
-    /* border: 1px solid red; */
     margin: 3% 0;
     color: rgb(48, 48, 48);
     font-size: large;
@@ -69,11 +57,9 @@
 }
 
 .music-btn{
-    /* border: 2px solid; */
     display: flex;
     justify-content: space-evenly;
     margin:  3% ;
-    /* margin-bottom: 1%; */
 
 }
 
@@ -85,34 +71,31 @@
     color: white;
 }
 
-/* @media screen and (max-width: 700px){
-
-} */
 
 @media screen and (max-width: 700px) {
     #admin-manage-song {
-      width: 300px; /* Adjust the width for smaller screens */
+      width: 300px; 
     }
   
     #admin-manage-song > h2 {
-      font-size: large; /* Adjust the font size for the heading */
+      font-size: large; 
     }
   
     .all-music {
-      grid-template-columns: repeat(1, 1fr); /* Displ1y two cards per row on smaller screens */
-      gap: 10px; /* Reduce the gap between cards */
-      width: 90%; /* Adjust the width of the grid */
-      margin: 2% auto; /* Adjust margin for smaller screens */
+      grid-template-columns: repeat(1, 1fr); 
+      gap: 10px; 
+      width: 90%; 
+      margin: 2% auto; 
     }
   
     .music-img {
-      width: 100%; /* Make the image width 100% for smaller screens */
-      height: auto; /* Auto-adjust image height */
-      margin: 0; /* Remove margin for the image */
+      width: 100%; 
+      height: auto; 
+      margin: 0; 
     }
   
     
   
-    /* Additional adjustments as needed for responsiveness */
+    
   }
   
