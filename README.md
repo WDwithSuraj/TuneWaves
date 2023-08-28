@@ -29,7 +29,7 @@ TuneWaves is not just a music platform, it's your portal to a world of limitless
 TuneWaves is not just a platform, it's a musical journey waiting to be written by you. Discover the sound of TuneWaves today and let the music take you places.
 
 ## For Deploying
-![](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
 
 - Live preview : https://tunewaves.vercel.app/
