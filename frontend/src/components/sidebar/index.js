@@ -21,7 +21,7 @@ function Sidebar() {
   const token = localStorage.getItem("token")
 
   const logOut = () => {
-    axios(`http://localhost:8080/tuneWaves/users/logout`, {
+    axios(`https://cute-lime-sweatpants.cyclic.app/tuneWaves/users/logout`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`

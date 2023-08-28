@@ -14,7 +14,7 @@ function Login() {
   const [isSuccessAlertOpen, setIsSuccessAlertOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-const [isAdmin,setIsAdmin]=useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -24,7 +24,7 @@ const [isAdmin,setIsAdmin]=useState(false);
     };
 
     try {
-      const response = await fetch('http://localhost:8080/tuneWaves/users/login', {
+      const response = await fetch('https://cute-lime-sweatpants.cyclic.app/tuneWaves/users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,15 +35,15 @@ const [isAdmin,setIsAdmin]=useState(false);
 
       const data = await response.json();
       console.log(data);
-      localStorage.setItem('user',data.user.name)
+      localStorage.setItem('user', data.user.name)
       if (response.ok) {
         setResponseMessage('Login successful!');
         openSuccessAlert();
         localStorage.setItem('token', data.token);
 
-       setTimeout(()=>{
-        data.user.isAdmin?navigate("/admin"):navigate("/")
-       },1000)
+        setTimeout(() => {
+          data.user.isAdmin ? navigate("/admin") : navigate("/")
+        }, 1000)
         setEmail('');
         setPassword('');
       } else {
@@ -56,7 +56,7 @@ const [isAdmin,setIsAdmin]=useState(false);
       setResponseMessage('An error occurred while logging in.');
       openErrorAlert();
       setEmail('');
-        setPassword('');
+      setPassword('');
     }
   };
 
@@ -85,20 +85,20 @@ const [isAdmin,setIsAdmin]=useState(false);
       alignItems="center"
       flexDirection="row"
     >
-       {/* Left half */}
-       <Box flex="1" pt={81} pl={160} pb={189} h={"100vh"} background={"#3A2619"} >
-   
-        <Box style={{display:"flex"}}>
-      <a href="./">  <img
-          src="Musiclogo.png"
-          alt="Logo"
-          
-          // onClick={()=>{navigate("/")}}
-          style={{ width: '90px', height: 'auto' ,position: 'absolute', top: -6, left: 15 }}
-        /></a>
-        <a href="./"><h4 style={{marginTop:"30px",fontFamily:"Fantasy", position: 'absolute', top: -8, left: 68,color:'#d5d5d5'}}>TuneWaves</h4></a>
-      </Box>
-        <img width={"72%"}  src="/Badshah.png" alt="" />
+      {/* Left half */}
+      <Box flex="1" pt={81} pl={160} pb={189} h={"100vh"} background={"#3A2619"} >
+
+        <Box style={{ display: "flex" }}>
+          <a href="./">  <img
+            src="Musiclogo.png"
+            alt="Logo"
+
+            // onClick={()=>{navigate("/")}}
+            style={{ width: '90px', height: 'auto', position: 'absolute', top: -6, left: 15 }}
+          /></a>
+          <a href="./"><h4 style={{ marginTop: "30px", fontFamily: "Fantasy", position: 'absolute', top: -8, left: 68, color: '#d5d5d5' }}>TuneWaves</h4></a>
+        </Box>
+        <img width={"72%"} src="/Badshah.png" alt="" />
         <b>
           <h2 style={{ textAlign: "center", marginRight: "120px", fontSize: "25px", color: "#FFFFFF" }}>All Your Music.</h2>
           <h2 style={{ textAlign: "center", marginRight: "120px", fontSize: "20px", color: "#f6e630" }}>Anytime,anywhere</h2>
@@ -107,12 +107,12 @@ const [isAdmin,setIsAdmin]=useState(false);
 
       {/* Right half */}
       <Box pl={110} mt={0} height={"420px"} marginRight={"138px"} marginTop={"-150px"} rounded="lg" maxWidth="600px" width="70%" style={{ backdropFilter: 'blur(5px)', fontFamily: "sans-serif" }}>
-        <h4 style={{position:"absolute",top:-80 , right:-84,fontSize:"13px"}}>Don't have a TuneWave account yet? <button onClick={()=>navigate("/signup")} style={{border:"1px solid gray",borderRadius:"13px",padding:" 5px 12px"}}>Sign Up</button></h4>
-      
-      
-        <b style={{ textAlign: "center", fontSize: "30px", marginLeft: "20px",pl:"60px",paddingTop:"300px" }}>  <h1 >Welcome to TuneWave.</h1></b>
+        <h4 style={{ position: "absolute", top: -80, right: -84, fontSize: "13px" }}>Don't have a TuneWave account yet? <button onClick={() => navigate("/signup")} style={{ border: "1px solid gray", borderRadius: "13px", padding: " 5px 12px" }}>Sign Up</button></h4>
+
+
+        <b style={{ textAlign: "center", fontSize: "30px", marginLeft: "20px", pl: "60px", paddingTop: "300px" }}>  <h1 >Welcome to TuneWave.</h1></b>
         <p style={{ marginTop: "-6px", marginLeft: "80px", fontSize: "18px" }}>Login with your Email address</p>
-        
+
         <form onSubmit={handleSubmit} style={{ paddingLeft: "110px", paddingTop: "30px", marginTop: "30px", boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px" }}>
 
           <FormControl>
@@ -120,32 +120,32 @@ const [isAdmin,setIsAdmin]=useState(false);
             <Input type="email" borderColor={"gray"} textAlign={"center"} borderRadius={"20px"} w={"300px"} mb={"25px"} placeholder='Email' color="gray" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </FormControl>
           <FormControl>
-      <InputGroup>
-        <Input
-          type={showPassword ? 'text' : 'password'}
-          textAlign={"center"}
-          borderColor={"gray"}
-          borderRadius={"20px"}
-          w={"300px"}
-          mb={"15px"}
-          placeholder='Password'
-          color="gray"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <InputRightElement width="4.5rem">
-          <IconButton
-            h="1.75rem"
-            size="sm"
-            marginLeft={"-36"}
-            onClick={() => setShowPassword(!showPassword)}
-            icon={showPassword ? <FaEyeSlash /> : <FaEye />}
-            variant="ghost"
-          />
-        </InputRightElement>
-      </InputGroup>
-    </FormControl>
+            <InputGroup>
+              <Input
+                type={showPassword ? 'text' : 'password'}
+                textAlign={"center"}
+                borderColor={"gray"}
+                borderRadius={"20px"}
+                w={"300px"}
+                mb={"15px"}
+                placeholder='Password'
+                color="gray"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <InputRightElement width="4.5rem">
+                <IconButton
+                  h="1.75rem"
+                  size="sm"
+                  marginLeft={"-36"}
+                  onClick={() => setShowPassword(!showPassword)}
+                  icon={showPassword ? <FaEyeSlash /> : <FaEye />}
+                  variant="ghost"
+                />
+              </InputRightElement>
+            </InputGroup>
+          </FormControl>
 
 
 
@@ -158,7 +158,7 @@ const [isAdmin,setIsAdmin]=useState(false);
         {responseMessage && <Text color="white">{responseMessage}</Text>}
       </Box>
 
-      
+
       <AlertDialog isOpen={isSuccessAlertOpen} onClose={closeErrorAlert}>
         <AlertDialogOverlay >
           <AlertDialogContent bg="#2BC5B4" color="white" borderRadius="md">
@@ -167,7 +167,7 @@ const [isAdmin,setIsAdmin]=useState(false);
           </AlertDialogContent>
         </AlertDialogOverlay>
       </AlertDialog>
-      
+
       <AlertDialog isOpen={isErrorAlertOpen} onClose={closeErrorAlert}>
         <AlertDialogOverlay>
           <AlertDialogContent bg="#2BC5B4" color="white" borderRadius="md" paddingTop="20">
