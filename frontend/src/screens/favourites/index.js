@@ -1,16 +1,11 @@
-
-
-
-
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
 import "./favorite.css";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 function Favorite() {
-
-  const [likesongs, setLikesongs] = useState([])
+  const [likesongs, setLikesongs] = useState([]);
   const token = localStorage.getItem("token");
   console.log(token);
 
@@ -25,20 +20,19 @@ function Favorite() {
         return res.json();
       })
       .then((data) => {
-        console.log(data)
-        setLikesongs(data.data)
-
+        console.log(data);
+        setLikesongs(data.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   useEffect(() => {
-    fetchdata()
-  }, [])
+    fetchdata();
+  }, []);
 
-  console.log(likesongs)
+  console.log(likesongs);
 
   const playPlaylist = (index) => {
     navigate("/player", { state: { index, likesongs } });
@@ -50,10 +44,7 @@ function Favorite() {
     <div className="screen-container">
       <div className="library-body">
         {likesongs?.map((playlist, index) => (
-          <div
-            className="playlist-card"
-            key={playlist._id}
-          >
+          <div className="playlist-card" key={playlist._id}>
             <img
               src={playlist.image}
               className="playlist-image"
@@ -61,14 +52,11 @@ function Favorite() {
             />
             <p className="playlist-title">{playlist.title}</p>
             <p className="playlist-artist">{playlist.artist} </p>
-
-
-
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Favorite
+export default Favorite;
